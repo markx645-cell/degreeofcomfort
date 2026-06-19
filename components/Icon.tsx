@@ -19,6 +19,7 @@ type IconName =
   | 'quote'
   | 'play'
   | 'chevron'
+  | 'caretDown'
   | 'mail'
   | 'pin';
 
@@ -65,6 +66,7 @@ const paths: Record<IconName, ReactNode> = {
   quote: <path d="M7 7H4v6h3l-1 4h2l1-4V7zm9 0h-3v6h3l-1 4h2l1-4V7z" />,
   play: <path d="M8 5v14l11-7z" />,
   chevron: <path d="M9 6l6 6-6 6" />,
+  caretDown: <path d="M6 9l6 6 6-6z" fill="currentColor" stroke="none" />,
   mail: (
     <>
       <rect x="3" y="5" width="18" height="14" rx="2" />

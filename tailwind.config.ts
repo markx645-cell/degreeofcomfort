@@ -43,6 +43,11 @@ const config: Config = {
           500: '#f9a826',
           600: '#e08e10',
         },
+        // Bright royal blue used on the promo banner
+        cobalt: {
+          DEFAULT: '#1763c6',
+          dark: '#1250a0',
+        },
         ink: '#0f1b3d',
         cream: '#f6f8ff',
       },

@@ -60,16 +60,107 @@ export default function Header() {
           <Logo />
 
           <nav className="hidden items-center gap-0.5 xl:flex">
-            {nav.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="flex items-center gap-1 rounded-md px-2.5 py-2 text-[13px] font-bold uppercase tracking-wide text-brand-800 transition hover:text-pink-500"
-              >
-                {item.label}
-                {item.caret && <Icon name="chevron" className="h-3 w-3 rotate-90 text-pink-500" />}
-              </Link>
-            ))}
+            {nav.map((item) =>
+              item.children ? (
+                <div key={item.label} className="group relative">
+                  <Link
+                    href={item.href}
+                    className="flex items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-xs font-bold uppercase tracking-wide text-ink transition group-hover:text-pink-500"
+                  >
+                    {item.label}
+                    {item.caret && (
+                      <Icon name="caretDown" className="h-2.5 w-2.5" />
+                    )}
+                  </Link>
+
+                  {/* Hover dropdown */}
+                  <div className="invisible absolute left-0 top-full z-50 w-72 translate-y-1 pt-1 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                    <div className="rounded-b-lg border border-brand-100 bg-white shadow-card">
+                      {item.children.map((child) =>
+                        child.children ? (
+                          <div key={child.label} className="group/sub relative">
+                            <span className="flex cursor-default items-center justify-between border-b border-brand-100 px-5 py-2.5 text-sm font-semibold text-brand-900 transition group-hover/sub:bg-pink-500 group-hover/sub:text-white">
+                              {child.label}
+                              <Icon name="chevron" className="h-3.5 w-3.5" />
+                            </span>
+                            {/* Nested flyout — opens to the left */}
+                            <div className="invisible absolute right-full top-0 z-50 w-72 opacity-0 transition-all duration-150 group-hover/sub:visible group-hover/sub:opacity-100">
+                              <div className="mr-px rounded-l-lg border border-brand-100 bg-white shadow-card">
+                                {child.children.map((sub) =>
+                                  sub.children ? (
+                                    <div key={sub.label} className="group/sub2 relative">
+                                      <span className="flex cursor-default items-center justify-between border-b border-brand-100 px-5 py-2.5 text-sm font-semibold text-brand-900 transition last:border-b-0 group-hover/sub2:bg-pink-500 group-hover/sub2:text-white">
+                                        {sub.label}
+                                        <Icon name="chevron" className="h-3.5 w-3.5" />
+                                      </span>
+                                      <div className="invisible absolute right-full top-0 z-50 w-72 opacity-0 transition-all duration-150 group-hover/sub2:visible group-hover/sub2:opacity-100">
+                                        <div className="mr-px rounded-l-lg border border-brand-100 bg-white shadow-card">
+                                          {sub.children.map((leaf) => (
+                                            <Link
+                                              key={leaf.label}
+                                              href={leaf.href}
+                                              className="flex items-center justify-between border-b border-brand-100 px-5 py-2.5 text-sm font-semibold text-brand-900 transition last:border-b-0 hover:bg-brand-50 hover:text-pink-500"
+                                            >
+                                              {leaf.label}
+                                              {leaf.arrow && (
+                                                <Icon name="chevron" className="h-3.5 w-3.5 text-brand-400" />
+                                              )}
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  ) : (
+                                    <Link
+                                      key={sub.label}
+                                      href={sub.href}
+                                      className="flex items-center justify-between border-b border-brand-100 px-5 py-2.5 text-sm font-semibold text-brand-900 transition last:border-b-0 hover:bg-brand-50 hover:text-pink-500"
+                                    >
+                                      {sub.label}
+                                      {sub.arrow && (
+                                        <Icon name="chevron" className="h-3.5 w-3.5 text-brand-400" />
+                                      )}
+                                    </Link>
+                                  )
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        ) : (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            className="flex items-center justify-between border-b border-brand-100 px-5 py-2.5 text-sm font-semibold text-brand-900 transition last:rounded-b-lg last:border-b-0 hover:bg-brand-50 hover:text-pink-500"
+                          >
+                            {child.label}
+                            {child.arrow && (
+                              <Icon name="chevron" className="h-3.5 w-3.5 text-brand-400" />
+                            )}
+                          </Link>
+                        )
+                      )}
+                      {item.cta && (
+                        <Link
+                          href={item.cta.href}
+                          className="block rounded-b-lg bg-lime-500 px-5 py-3 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-lime-600"
+                        >
+                          {item.cta.label}
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="flex items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-xs font-bold uppercase tracking-wide text-ink transition hover:text-pink-500"
+                >
+                  {item.label}
+                  {item.caret && <Icon name="caretDown" className="h-2.5 w-2.5" />}
+                </Link>
+              )
+            )}
           </nav>
 
           <button

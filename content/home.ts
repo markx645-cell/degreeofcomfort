@@ -27,12 +27,19 @@ export const benefits = [
   },
 ];
 
-// Award badges row (placeholder labels — swap for real award art)
-export const awards = [
-  'Best of NKY',
-  'Family Choice Award',
-  "Reader's Choice",
-  'BBB Accredited',
+// Trust-seal medallions (your own service promises — truthful and yours to show).
+// If you have a REAL earned award, give me the badge image file and I'll swap a
+// slot to an <img> instead.
+export const awards: {
+  icon: 'check' | 'clock' | 'badge' | 'shield' | 'star' | 'heart';
+  label: string;
+}[] = [
+  { icon: 'check', label: 'Free Estimates' },
+  { icon: 'clock', label: 'Same-Day Service' },
+  { icon: 'badge', label: 'Upfront Pricing' },
+  { icon: 'shield', label: 'No Overtime Fees' },
+  { icon: 'star', label: 'Financing Available' },
+  { icon: 'heart', label: 'Locally Owned' },
 ];
 
 // Special offers carousel cards

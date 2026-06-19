@@ -54,17 +54,38 @@ export default function HomePage() {
 /* ─────────────── Promo bar ─────────────── */
 function PromoBar() {
   return (
-    <div className="bg-blue-section">
-      <div className="container-page flex flex-col items-center justify-center gap-3 py-3 text-center sm:flex-row sm:gap-5">
-        <div className="flex items-center gap-3">
-          <Icon name="snowflake" className="h-7 w-7 text-white" />
-          <p className="font-display text-base font-extrabold uppercase tracking-wide text-white sm:text-lg">
-            $89 Happy House Cooling Checkup
-          </p>
+    <div className="relative overflow-hidden bg-cobalt py-10 sm:py-12">
+      {/* Large snowflake on the left */}
+      <Icon
+        name="snowflake"
+        className="absolute left-[4%] top-1/2 hidden h-24 w-24 -translate-y-1/2 text-white/85 sm:block lg:left-[14%] lg:h-28 lg:w-28"
+      />
+
+      {/* Reviews badge, bottom-left corner */}
+      <div className="absolute -bottom-4 -left-4 grid h-24 w-24 place-items-center rounded-full bg-pink-500 text-center text-white shadow-cta sm:h-28 sm:w-28">
+        <div className="pl-3 pt-3">
+          <div className="flex justify-center gap-0.5">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Icon key={i} name="star" className="h-2.5 w-2.5 fill-white text-white" />
+            ))}
+          </div>
+          <div className="font-display text-lg font-black leading-none">
+            {site.reviewCount.toLocaleString()}+
+          </div>
+          <div className="text-[8px] font-bold uppercase leading-tight tracking-wide">
+            5-Star Reviews
+          </div>
         </div>
-        <a href={site.primaryPhone.href} className="btn-pink px-5 py-2 text-xs">
+      </div>
+
+      {/* Centered headline + CTA */}
+      <div className="container-page relative z-10 flex flex-col items-center gap-5 text-center">
+        <h2 className="font-display text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-white sm:text-4xl lg:text-[42px]">
+          $89 Happy House Cooling Checkup
+        </h2>
+        <a href={site.primaryPhone.href} className="btn-pink px-7 py-3 text-sm">
           Get Offer Now
-          <Icon name="arrow" className="h-4 w-4" />
+          <Icon name="chevron" className="h-4 w-4" />
         </a>
       </div>
     </div>
@@ -80,73 +101,120 @@ function Hero() {
   }));
 
   return (
-    <section className="relative">
-      {/* vertical reviews badge */}
-      <div className="absolute left-0 top-28 z-20 hidden -translate-x-1/3 -rotate-90 lg:block">
-        <span className="flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-bold text-brand-700 shadow-card">
-          <Icon name="star" className="h-4 w-4 fill-gold-500 text-gold-500" />
-          {site.reviewCount.toLocaleString()}+ Reviews
-        </span>
+    <section className="relative overflow-hidden bg-hero-pink">
+      {/* Desktop photo with diagonal cut + blue accent edge */}
+      <div className="absolute inset-y-0 right-0 hidden w-[64%] lg:block" aria-hidden>
+        <div
+          className="absolute inset-0 bg-brand-700"
+          style={{ clipPath: 'polygon(6% 0, 100% 0, 100% 100%, 0 100%)' }}
+        />
+        <div
+          className="absolute inset-0 bg-brand-300 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(/hero.jpg)',
+            clipPath: 'polygon(9% 0, 100% 0, 100% 100%, 3% 100%)',
+          }}
+        />
       </div>
 
-      <div className="bg-hero-pink">
-        <div className="container-page grid items-center gap-8 py-12 lg:grid-cols-2 lg:py-16">
-          {/* Left copy */}
-          <div className="animate-fade-up text-white">
-            <h1 className="font-display text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-6xl">
-              The <span className="text-white/60">Color</span> of
-              <br />
-              Comfort.
-            </h1>
-            <p className="mt-4 text-sm font-bold uppercase tracking-wide text-white/90">
-              Proudly servicing {site.serviceArea}
-            </p>
-            <ul className="mt-5 space-y-2.5">
-              {['Same Day Service', 'Local, Family Owned & Operated', '100% Satisfaction Guarantee'].map(
-                (b) => (
-                  <li key={b} className="flex items-center gap-2.5 text-sm font-semibold">
-                    <span className="grid h-5 w-5 place-items-center rounded-full bg-white">
-                      <Icon name="check" className="h-3.5 w-3.5 text-pink-500" />
-                    </span>
-                    {b}
-                  </li>
-                )
-              )}
-            </ul>
-            <a href={site.primaryPhone.href} className="btn-white mt-7 text-sm text-pink-600">
-              Schedule Now
-              <Icon name="arrow" className="h-4 w-4" />
-            </a>
-          </div>
-
-          {/* Right image placeholder + mascot */}
-          <div className="relative">
-            <div className="grid aspect-[4/3] place-items-center overflow-hidden rounded-2xl bg-white/15 ring-1 ring-white/30 backdrop-blur">
-              <span className="text-center text-sm font-semibold text-white/80">
-                [ Happy customer photo ]
-                <br />
-                <span className="text-xs text-white/60">drop image in /public</span>
-              </span>
-            </div>
-            {/* mascot placeholder */}
-            <div className="absolute -bottom-6 -right-2 grid h-24 w-24 animate-float place-items-center rounded-full bg-gold-500 ring-4 ring-white sm:h-28 sm:w-28">
-              <Icon name="heart" className="h-12 w-12 text-brand-700" />
-            </div>
-          </div>
+      {/* Left copy */}
+      <div className="container-page relative z-10">
+        <div className="max-w-md py-12 text-white lg:max-w-[44%] lg:py-24">
+          <h1 className="font-display text-5xl font-black uppercase leading-[0.9] tracking-tight sm:text-6xl">
+            The{' '}
+            <span
+              style={{
+                WebkitTextStrokeWidth: '2px',
+                WebkitTextStrokeColor: '#ffffff',
+                color: 'transparent',
+              }}
+            >
+              Color
+            </span>{' '}
+            of
+            <br />
+            Comfort.
+          </h1>
+          <p className="mt-4 text-sm font-bold uppercase tracking-wide text-white/90 sm:text-base">
+            Proudly servicing {site.serviceArea}
+          </p>
+          <ul className="mt-5 space-y-2.5">
+            {['Same-Day Service', 'Local, Family Owned & Operated', '100% Satisfaction Guarantee'].map(
+              (b) => (
+                <li key={b} className="flex items-center gap-2.5 text-sm font-semibold">
+                  <span className="grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-white">
+                    <Icon name="check" className="h-3.5 w-3.5 text-pink-500" />
+                  </span>
+                  {b}
+                </li>
+              )
+            )}
+          </ul>
+          <a
+            href={site.primaryPhone.href}
+            className="mt-7 inline-flex items-center gap-2 rounded-full bg-lime-500 px-7 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-cta transition hover:-translate-y-0.5 hover:bg-lime-600"
+          >
+            Schedule Now
+            <Icon name="chevron" className="h-4 w-4" />
+          </a>
         </div>
       </div>
 
-      {/* Service pills row */}
-      <div className="container-page relative z-10 -mt-7">
-        <div className="grid grid-cols-2 gap-3 rounded-2xl bg-white p-4 shadow-card sm:grid-cols-4">
+      {/* Desktop service buttons — inside hero, bottom-right */}
+      <div className="absolute bottom-6 left-[42%] right-4 z-30 hidden gap-3 lg:flex">
+        {pills.map((p) => (
+          <Link
+            key={p.label}
+            href={p.href}
+            className="flex flex-1 items-center justify-center gap-2.5 rounded-xl bg-pink-500 px-3 py-3 shadow-pill transition hover:-translate-y-0.5 hover:bg-pink-600"
+          >
+            <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-white text-pink-500">
+              <Icon name={p.icon} className="h-5 w-5" />
+            </span>
+            <span className="text-sm font-extrabold uppercase tracking-wide text-white">
+              {p.label}
+            </span>
+          </Link>
+        ))}
+      </div>
+
+      {/* Desktop mascot */}
+      <img
+        src="/mascot.png"
+        alt="Degree of Comfort mascot"
+        width={200}
+        height={200}
+        className="absolute bottom-20 right-[6%] z-20 hidden h-44 w-44 animate-float object-contain drop-shadow-2xl lg:block"
+      />
+
+      {/* Mobile photo + buttons */}
+      <div className="container-page relative z-10 pb-10 lg:hidden">
+        <div className="relative">
+          <div
+            className="aspect-[4/3] rounded-2xl bg-brand-300 bg-cover bg-center ring-1 ring-white/30"
+            style={{ backgroundImage: 'url(/hero.jpg)' }}
+          />
+          <img
+            src="/mascot.png"
+            alt="Degree of Comfort mascot"
+            width={120}
+            height={120}
+            className="absolute -bottom-6 right-2 h-24 w-24 object-contain drop-shadow-xl"
+          />
+        </div>
+        <div className="mt-8 grid grid-cols-2 gap-3">
           {pills.map((p) => (
             <Link
               key={p.label}
               href={p.href}
-              className="group flex items-center justify-center gap-2 rounded-xl bg-pink-500 px-4 py-3 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-pink-600"
+              className="flex items-center gap-2.5 rounded-xl bg-pink-500 px-3 py-3 transition hover:bg-pink-600"
             >
-              <Icon name={p.icon} className="h-5 w-5" />
-              {p.label}
+              <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-white text-pink-500">
+                <Icon name={p.icon} className="h-5 w-5" />
+              </span>
+              <span className="text-sm font-extrabold uppercase tracking-wide text-white">
+                {p.label}
+              </span>
             </Link>
           ))}
         </div>
@@ -203,14 +271,17 @@ function WhyChoose() {
           </div>
         </div>
 
-        {/* Award badges */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-5 sm:gap-10">
+        {/* Trust-seal medallions */}
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-5 sm:gap-8">
           {awards.map((a) => (
             <div
-              key={a}
-              className="grid h-20 w-20 place-items-center rounded-full bg-brand-50 px-2 text-center text-[10px] font-bold uppercase leading-tight text-brand-600 ring-2 ring-brand-100"
+              key={a.label}
+              className="flex h-24 w-24 flex-col items-center justify-center gap-1.5 rounded-full bg-brand-50 px-3 text-center ring-4 ring-brand-100 sm:h-28 sm:w-28"
             >
-              {a}
+              <Icon name={a.icon} className="h-6 w-6 text-pink-500" />
+              <span className="text-[9px] font-extrabold uppercase leading-tight tracking-wide text-brand-700 sm:text-[10px]">
+                {a.label}
+              </span>
             </div>
           ))}
         </div>
@@ -222,15 +293,8 @@ function WhyChoose() {
 /* ─────────────── Work stands out ─────────────── */
 function WorkStandsOut() {
   return (
-    <section className="relative bg-blue-section pb-16 pt-4">
-      {/* mascot on top */}
-      <div className="container-page flex justify-center">
-        <div className="-mt-12 grid h-24 w-24 place-items-center rounded-full bg-gold-500 ring-4 ring-white">
-          <Icon name="heart" className="h-12 w-12 text-brand-700" />
-        </div>
-      </div>
-
-      <div className="container-page mt-2 grid gap-10 lg:grid-cols-2 lg:items-center">
+    <section className="relative bg-blue-section pb-16 pt-12">
+      <div className="container-page grid gap-10 lg:grid-cols-2 lg:items-center">
         {/* tech photo placeholder */}
         <div className="grid aspect-[4/3] place-items-center overflow-hidden rounded-2xl bg-white/10 ring-1 ring-white/20">
           <span className="text-sm font-semibold text-white/70">[ Team photo ]</span>
