@@ -15,8 +15,7 @@ export default function PageHero({
   crumbs: Crumb[];
 }) {
   return (
-    <section className="relative overflow-hidden bg-brand-gradient-deep">
-      <div className="absolute inset-0 bg-hero-radial opacity-70" />
+    <section className="relative overflow-hidden bg-blue-section">
       <div className="container-page relative py-14 sm:py-20">
         <nav aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-brand-100">
@@ -37,7 +36,9 @@ export default function PageHero({
           </ol>
         </nav>
 
-        <span className="eyebrow mt-5 bg-white/10 text-brand-100">{eyebrow}</span>
+        <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-brand-100">
+          {eyebrow}
+        </span>
         <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-tight text-white sm:text-5xl">
           {title}
         </h1>

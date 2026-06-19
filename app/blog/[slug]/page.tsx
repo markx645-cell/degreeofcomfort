@@ -111,7 +111,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <div>
             {/* Byline */}
             <div className="flex items-center gap-4 border-b border-brand-900/5 pb-6">
-              <span className="grid h-12 w-12 place-items-center rounded-full bg-brand-gradient font-display text-lg font-bold text-white">
+              <span className="grid h-12 w-12 place-items-center rounded-full bg-blue-section font-display text-lg font-bold text-white">
                 {post.author.name.slice(0, 1)}
               </span>
               <div className="text-sm">
@@ -149,12 +149,12 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             )}
 
             {/* Inline CTA */}
-            <div className="mt-12 rounded-3xl bg-brand-gradient p-8 text-center">
+            <div className="mt-12 rounded-3xl bg-blue-section p-8 text-center">
               <h2 className="text-2xl font-extrabold text-white">Rather just have us handle it?</h2>
               <p className="mx-auto mt-2 max-w-md text-brand-50">
                 Our licensed technicians serve {site.serviceArea}. Same-day service available.
               </p>
-              <a href={site.primaryPhone.href} className="btn-primary mt-5">
+              <a href={site.primaryPhone.href} className="btn-pink mt-5">
                 <Icon name="phone" className="h-4 w-4" />
                 Call {site.primaryPhone.number}
               </a>

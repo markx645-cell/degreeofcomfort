@@ -58,7 +58,7 @@ export default function BlogIndex() {
                 <Icon name="arrow" className="h-4 w-4" />
               </span>
             </div>
-            <div className="order-1 grid aspect-[16/10] place-items-center rounded-2xl bg-brand-gradient lg:order-2">
+            <div className="order-1 grid aspect-[16/10] place-items-center rounded-2xl bg-hero-pink lg:order-2">
               <Icon name="quote" className="h-16 w-16 text-white/40" />
             </div>
           </Link>

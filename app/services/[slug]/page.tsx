@@ -136,12 +136,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
           {/* Sidebar */}
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
-            <div className="card bg-brand-gradient-deep text-white">
+            <div className="card bg-blue-section text-white">
               <h2 className="text-xl font-bold text-white">Book {service.title.toLowerCase()}</h2>
               <p className="mt-2 text-sm text-brand-100">
                 {site.hours} Serving {site.serviceArea}.
               </p>
-              <a href={site.primaryPhone.href} className="btn-primary mt-5 w-full">
+              <a href={site.primaryPhone.href} className="btn-pink mt-5 w-full">
                 <Icon name="phone" className="h-4 w-4" />
                 {site.primaryPhone.number}
               </a>

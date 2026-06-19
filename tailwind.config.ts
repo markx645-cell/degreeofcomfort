@@ -9,42 +9,57 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary brand blue/teal — the cloned palette
+        // Royal blue (section backgrounds) — the cloned palette
         brand: {
-          50: '#eefbfd',
-          100: '#d4f4f9',
-          200: '#aee9f2',
-          300: '#76d7e8',
-          400: '#36bcd6',
-          500: '#199fbc',
-          600: '#177f9f',
-          700: '#196781',
-          800: '#1d556a',
-          900: '#1d475a',
-          950: '#0d2e3d',
+          50: '#eef3ff',
+          100: '#dbe5ff',
+          200: '#b8cbff',
+          300: '#8ba7ff',
+          400: '#5b7cf5',
+          500: '#2f54e0',
+          600: '#1f48c8',
+          700: '#1a3aa6',
+          800: '#16307f',
+          900: '#0f2266',
+          950: '#0a1747',
         },
-        // Warm accent used sparingly for offers / badges
-        accent: {
-          400: '#ff8a4c',
-          500: '#f97316',
-          600: '#e85d04',
+        // Hot magenta — primary CTAs, hero
+        pink: {
+          light: '#f9d4e8',
+          400: '#f25cae',
+          500: '#ec148c',
+          600: '#cc0d77',
+          700: '#a80a62',
         },
-        ink: '#0f2430',
-        cream: '#f7fbfc',
+        // Lime green — "Get Instant Estimate", logo roof
+        lime: {
+          400: '#a3d65a',
+          500: '#8cc63f',
+          600: '#74ad32',
+        },
+        // Gold/amber — "Book Appointment"
+        gold: {
+          400: '#fbbd4f',
+          500: '#f9a826',
+          600: '#e08e10',
+        },
+        ink: '#0f1b3d',
+        cream: '#f6f8ff',
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
-        'brand-gradient': 'linear-gradient(135deg, #199fbc 0%, #36bcd6 50%, #76d7e8 100%)',
-        'brand-gradient-deep': 'linear-gradient(135deg, #0d2e3d 0%, #196781 55%, #199fbc 100%)',
-        'hero-radial': 'radial-gradient(1200px 600px at 75% -10%, rgba(118,215,232,0.45), transparent 60%)',
+        'hero-pink': 'linear-gradient(115deg, #ec148c 0%, #cc0d77 60%, #a80a62 100%)',
+        'blue-section': 'linear-gradient(180deg, #1f48c8 0%, #1a3aa6 100%)',
+        'navy-bar': 'linear-gradient(90deg, #0f2266 0%, #16307f 100%)',
       },
       boxShadow: {
-        card: '0 10px 40px -12px rgba(13, 46, 61, 0.18)',
-        'card-hover': '0 24px 60px -18px rgba(13, 46, 61, 0.32)',
-        cta: '0 12px 30px -8px rgba(25, 159, 188, 0.55)',
+        card: '0 12px 40px -12px rgba(10, 23, 71, 0.25)',
+        'card-hover': '0 24px 60px -16px rgba(10, 23, 71, 0.4)',
+        cta: '0 10px 24px -8px rgba(236, 20, 140, 0.55)',
+        pill: '0 6px 18px -6px rgba(10, 23, 71, 0.3)',
       },
       borderRadius: {
         xl: '1rem',
@@ -60,15 +75,10 @@ const config: Config = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-12px)' },
         },
-        marquee: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
       },
       animation: {
         'fade-up': 'fade-up 0.7s ease-out both',
         float: 'float 6s ease-in-out infinite',
-        marquee: 'marquee 28s linear infinite',
       },
     },
   },

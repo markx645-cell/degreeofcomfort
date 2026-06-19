@@ -16,7 +16,9 @@ type IconName =
   | 'check'
   | 'menu'
   | 'close'
-  | 'quote';
+  | 'quote'
+  | 'play'
+  | 'chevron';
 
 const paths: Record<IconName, ReactNode> = {
   snowflake: (
@@ -59,6 +61,8 @@ const paths: Record<IconName, ReactNode> = {
   menu: <path d="M3 6h18M3 12h18M3 18h18" />,
   close: <path d="M6 6l12 12M18 6 6 18" />,
   quote: <path d="M7 7H4v6h3l-1 4h2l1-4V7zm9 0h-3v6h3l-1 4h2l1-4V7z" />,
+  play: <path d="M8 5v14l11-7z" />,
+  chevron: <path d="M9 6l6 6-6 6" />,
 };
 
 export default function Icon({

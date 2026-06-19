@@ -61,7 +61,7 @@ export default function ServicesIndex() {
               </div>
 
               <div className="flex flex-col gap-2 lg:items-end">
-                <Link href={`/services/${s.slug}`} className="btn-brand">
+                <Link href={`/services/${s.slug}`} className="btn-pink">
                   Learn more
                   <Icon name="arrow" className="h-4 w-4" />
                 </Link>

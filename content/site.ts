@@ -4,14 +4,14 @@
 // ─────────────────────────────────────────────────────────────
 
 export const site = {
-  name: 'Summit Home Services',
-  shortName: 'Summit',
-  tagline: 'The Whole-Home Comfort Team',
+  name: 'Degree of Comfort',
+  shortName: 'Degree of Comfort',
+  tagline: 'Heating · Cooling · Electrical · Plumbing',
   // Used for canonical URLs, sitemap, Open Graph
-  url: 'https://www.summithomeservices.com',
+  url: 'https://degree3trades.vercel.app',
   description:
     'Heating, cooling, plumbing, and electrical for the Tri-State area. Same-day service, upfront pricing, and a satisfaction guarantee on every job.',
-  email: 'hello@summithomeservices.com',
+  email: 'hello@degreeofcomfort.com',
   founded: 2009,
   rating: 4.9,
   reviewCount: 6200,
@@ -58,17 +58,12 @@ export type NavChild = { label: string; href: string; description?: string };
 export type NavItem = { label: string; href: string; children?: NavChild[] };
 
 export const nav: NavItem[] = [
-  {
-    label: 'Services',
-    href: '/services',
-    children: [
-      { label: 'Air Conditioning', href: '/services/air-conditioning', description: 'Repair, install & tune-ups' },
-      { label: 'Heating & Furnaces', href: '/services/heating', description: 'Furnaces, heat pumps & boilers' },
-      { label: 'Plumbing', href: '/services/plumbing', description: 'Drains, water heaters & repairs' },
-      { label: 'Electrical', href: '/services/electrical', description: 'Panels, EV chargers & wiring' },
-    ],
-  },
+  { label: 'Plumbing', href: '/services/plumbing' },
+  { label: 'Heating', href: '/services/heating' },
+  { label: 'Air Conditioning', href: '/services/air-conditioning' },
+  { label: 'Electrical', href: '/services/electrical' },
+  { label: 'About Us', href: '/#why' },
+  { label: 'Specials', href: '/#offers' },
+  { label: 'Areas We Serve', href: '/#areas' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Reviews', href: '/#reviews' },
-  { label: 'Offers', href: '/#offers' },
 ];
