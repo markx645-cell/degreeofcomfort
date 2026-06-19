@@ -18,9 +18,9 @@ export const site = {
   yearsExperience: new Date().getFullYear() - 2009,
 
   phones: [
-    { label: 'Kentucky', number: '859-555-0142', href: 'tel:+18595550142' },
-    { label: 'Cincinnati', number: '513-555-0188', href: 'tel:+15135550188' },
     { label: 'Indiana', number: '812-555-0119', href: 'tel:+18125550119' },
+    { label: 'Cincinnati', number: '513-555-0188', href: 'tel:+15135550188' },
+    { label: 'Kentucky', number: '859-555-0142', href: 'tel:+18595550142' },
   ],
 
   primaryPhone: { number: '859-555-0142', href: 'tel:+18595550142' },
@@ -55,15 +55,14 @@ export const site = {
 };
 
 export type NavChild = { label: string; href: string; description?: string };
-export type NavItem = { label: string; href: string; children?: NavChild[] };
+export type NavItem = { label: string; href: string; caret?: boolean; children?: NavChild[] };
 
 export const nav: NavItem[] = [
-  { label: 'Plumbing', href: '/services/plumbing' },
-  { label: 'Heating', href: '/services/heating' },
-  { label: 'Air Conditioning', href: '/services/air-conditioning' },
-  { label: 'Electrical', href: '/services/electrical' },
-  { label: 'About Us', href: '/#why' },
-  { label: 'Specials', href: '/#offers' },
+  { label: 'Plumbing', href: '/services/plumbing', caret: true },
+  { label: 'Heating', href: '/services/heating', caret: true },
+  { label: 'Air Conditioning', href: '/services/air-conditioning', caret: true },
+  { label: 'Electrical', href: '/services/electrical', caret: true },
+  { label: 'About Us', href: '/#why', caret: true },
+  { label: 'Specials', href: '/#offers', caret: true },
   { label: 'Areas We Serve', href: '/#areas' },
-  { label: 'Blog', href: '/blog' },
 ];
