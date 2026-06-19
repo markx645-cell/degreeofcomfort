@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Icon from './Icon';
 import { site } from '@/content/site';
+import { services } from '@/content/services';
 
 const year = new Date().getFullYear();
 
@@ -8,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy-bar text-brand-100">
       <div className="container-page py-12">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr]">
           {/* Brand + newsletter */}
           <div>
             <Link href="/" className="flex items-center gap-2.5">
@@ -54,37 +55,55 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Phones */}
+          {/* Contact */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Call or Text</h3>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              {site.phones.map((p) => (
-                <li key={p.label}>
-                  <a href={p.href} className="flex items-center gap-2 transition hover:text-white">
-                    <Icon name="phone" className="h-4 w-4 text-pink-400" />
-                    <span className="text-brand-300">{p.label}:</span>
-                    <span className="font-semibold text-white">{p.number}</span>
-                  </a>
-                </li>
-              ))}
+            <h3 className="font-display text-lg font-extrabold uppercase tracking-wide text-gold-500">
+              Contact
+            </h3>
+            <ul className="mt-4 space-y-3 text-sm">
+              <li>
+                <a href={site.primaryPhone.href} className="flex items-center gap-2.5 transition hover:text-white">
+                  <Icon name="phone" className="h-4 w-4 flex-shrink-0 text-brand-300" />
+                  <span className="font-semibold text-white">{site.primaryPhone.number}</span>
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${site.email}`} className="flex items-center gap-2.5 transition hover:text-white">
+                  <Icon name="mail" className="h-4 w-4 flex-shrink-0 text-brand-300" />
+                  <span className="break-all">{site.email}</span>
+                </a>
+              </li>
+              <li>
+                <a href={site.offices[0].mapHref} className="flex items-center gap-2.5 transition hover:text-white">
+                  <Icon name="pin" className="h-4 w-4 flex-shrink-0 text-brand-300" />
+                  <span>{site.location}</span>
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Icon name="clock" className="h-4 w-4 flex-shrink-0 text-brand-300" />
+                <span>{site.hours}</span>
+              </li>
             </ul>
-            <p className="mt-4 text-sm text-brand-200">{site.hours}</p>
           </div>
 
-          {/* Locations */}
+          {/* Quick links */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Visit Us</h3>
-            <ul className="mt-4 space-y-4 text-sm">
-              {site.offices.map((o) => (
-                <li key={o.city}>
-                  <a href={o.mapHref} className="transition hover:text-white">
-                    <span className="block font-semibold text-white">{o.city}</span>
-                    {o.street}
-                    <br />
-                    {o.region}
-                  </a>
+            <h3 className="font-display text-lg font-extrabold uppercase tracking-wide text-gold-500">
+              Quick Links
+            </h3>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              {services.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/services/${s.slug}`} className="transition hover:text-white">
+                    {s.title}
+                  </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/blog" className="transition hover:text-white">
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -95,11 +114,6 @@ export default function Footer() {
         <div className="container-page flex flex-col gap-3 py-5 text-xs text-brand-300 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name}. All rights reserved.
-          </p>
-          <p className="flex flex-wrap gap-x-4 gap-y-1">
-            {site.licenses.map((l) => (
-              <span key={l}>{l}</span>
-            ))}
           </p>
           <div className="flex gap-4">
             <Link href="/sitemap.xml" className="transition hover:text-white">

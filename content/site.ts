@@ -11,37 +11,31 @@ export const site = {
   url: 'https://degree3trades.vercel.app',
   description:
     'Heating, cooling, plumbing, and electrical for the Tri-State area. Same-day service, upfront pricing, and a satisfaction guarantee on every job.',
-  email: 'hello@degreeofcomfort.com',
+  email: 'cincydegreeofcomfort@gmail.com',
   founded: 2009,
   rating: 4.9,
   reviewCount: 6200,
   yearsExperience: new Date().getFullYear() - 2009,
 
   phones: [
-    { label: 'Indiana', number: '812-555-0119', href: 'tel:+18125550119' },
-    { label: 'Cincinnati', number: '513-555-0188', href: 'tel:+15135550188' },
-    { label: 'Kentucky', number: '859-555-0142', href: 'tel:+18595550142' },
+    { label: '', number: '(513) 586-5107', href: 'tel:+15135865107' },
   ],
 
-  primaryPhone: { number: '859-555-0142', href: 'tel:+18595550142' },
+  primaryPhone: { number: '(513) 586-5107', href: 'tel:+15135865107' },
+
+  location: 'Cincinnati, OH',
 
   offices: [
     {
-      city: 'Erlanger, KY',
-      street: '1420 Comfort Way',
-      region: 'Erlanger, KY 41018',
-      mapHref: 'https://maps.google.com',
-    },
-    {
       city: 'Cincinnati, OH',
-      street: '88 Riverbend Ave',
-      region: 'Cincinnati, OH 45202',
-      mapHref: 'https://maps.google.com',
+      street: '',
+      region: '',
+      mapHref: 'https://maps.google.com/?q=Cincinnati,OH',
     },
   ],
 
-  hours: 'Open 7 days — 7am to 9pm. Emergency service 24/7.',
-  serviceArea: 'Northern Kentucky, Greater Cincinnati & Southeast Indiana',
+  hours: 'Mon–Sun: 8am–8pm',
+  serviceArea: 'the Greater Cincinnati area',
 
   social: [
     { label: 'Facebook', href: 'https://facebook.com' },

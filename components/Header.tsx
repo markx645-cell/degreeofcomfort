@@ -14,7 +14,7 @@ export default function Header() {
       <div className="bg-brand-600 text-white">
         <div className="container-page flex h-9 items-center justify-between gap-3">
           <span className="hidden text-xs font-bold uppercase tracking-wide text-white sm:inline">
-            Call or Text 24/7
+            Call or Text · {site.hours}
           </span>
           <div className="flex flex-1 items-center justify-end gap-4 overflow-x-auto sm:gap-7">
             {site.phones.map((p) => (
@@ -24,9 +24,11 @@ export default function Header() {
                 className="flex flex-shrink-0 items-center gap-1.5 text-[11px] transition hover:text-pink-300 sm:text-[13px]"
               >
                 <Icon name="phone" className="h-3.5 w-3.5" />
-                <span className="hidden font-semibold uppercase tracking-wide text-brand-100 sm:inline">
-                  {p.label}:
-                </span>
+                {p.label && (
+                  <span className="hidden font-semibold uppercase tracking-wide text-brand-100 sm:inline">
+                    {p.label}:
+                  </span>
+                )}
                 <span className="font-bold">{p.number}</span>
               </a>
             ))}

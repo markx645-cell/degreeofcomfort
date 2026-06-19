@@ -18,7 +18,9 @@ type IconName =
   | 'close'
   | 'quote'
   | 'play'
-  | 'chevron';
+  | 'chevron'
+  | 'mail'
+  | 'pin';
 
 const paths: Record<IconName, ReactNode> = {
   snowflake: (
@@ -63,6 +65,18 @@ const paths: Record<IconName, ReactNode> = {
   quote: <path d="M7 7H4v6h3l-1 4h2l1-4V7zm9 0h-3v6h3l-1 4h2l1-4V7z" />,
   play: <path d="M8 5v14l11-7z" />,
   chevron: <path d="M9 6l6 6-6 6" />,
+  mail: (
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3 7l9 6 9-6" />
+    </>
+  ),
+  pin: (
+    <>
+      <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </>
+  ),
 };
 
 export default function Icon({
