@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
+import PageSections from '@/components/PageSections';
 import { posts } from '@/content/posts';
 import { site } from '@/content/site';
 
@@ -92,6 +93,7 @@ export default function BlogIndex() {
           </div>
         </div>
       </section>
+      <PageSections />
     </>
   );
 }

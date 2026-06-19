@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
+import PageSections from '@/components/PageSections';
 import { services, getService, type Service } from '@/content/services';
 import { servicePages, getServicePage, type ServicePage } from '@/content/servicePages';
 import { site } from '@/content/site';
@@ -43,12 +44,14 @@ export async function generateMetadata({
 export default async function ServiceRoute({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const service = getService(slug);
-  if (service) return <MainService service={service} />;
-
-  const sub = getServicePage(slug);
-  if (sub) return <SubService page={sub} />;
-
-  notFound();
+  const sub = service ? null : getServicePage(slug);
+  if (!service && !sub) notFound();
+  return (
+    <>
+      {service ? <MainService service={service} /> : <SubService page={sub!} />}
+      <PageSections />
+    </>
+  );
 }
 
 /* ─────────── Main category page (rich content) ─────────── */

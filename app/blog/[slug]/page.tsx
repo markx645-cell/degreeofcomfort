@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
+import PageSections from '@/components/PageSections';
 import { posts, getPost } from '@/content/posts';
 import { site } from '@/content/site';
 
@@ -203,6 +204,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           </aside>
         </div>
       </article>
+      <PageSections />
     </>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
+import PageSections from '@/components/PageSections';
 import { services } from '@/content/services';
 import { site } from '@/content/site';
 
@@ -81,6 +82,7 @@ export default function ServicesIndex() {
           ))}
         </div>
       </section>
+      <PageSections />
     </>
   );
 }

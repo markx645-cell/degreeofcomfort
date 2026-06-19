@@ -23,13 +23,14 @@ const config: Config = {
           900: '#0f2266',
           950: '#0a1747',
         },
-        // Hot magenta — primary CTAs, hero
+        // Orange — primary CTAs, hero (kept the "pink" key so all existing
+        // pink-* classes recolor at once)
         pink: {
-          light: '#f9d4e8',
-          400: '#f25cae',
-          500: '#ec148c',
-          600: '#cc0d77',
-          700: '#a80a62',
+          light: '#ffe7d3',
+          400: '#fb923c',
+          500: '#f97316',
+          600: '#ea580c',
+          700: '#c2410c',
         },
         // Lime green — "Get Instant Estimate", logo roof
         lime: {
@@ -57,14 +58,14 @@ const config: Config = {
         logo: ['var(--font-logo)', 'Georgia', 'serif'],
       },
       backgroundImage: {
-        'hero-pink': 'linear-gradient(115deg, #ec148c 0%, #cc0d77 60%, #a80a62 100%)',
+        'hero-pink': 'linear-gradient(115deg, #f97316 0%, #ea580c 60%, #c2410c 100%)',
         'blue-section': 'linear-gradient(180deg, #1f48c8 0%, #1a3aa6 100%)',
         'navy-bar': 'linear-gradient(90deg, #0f2266 0%, #16307f 100%)',
       },
       boxShadow: {
         card: '0 12px 40px -12px rgba(10, 23, 71, 0.25)',
         'card-hover': '0 24px 60px -16px rgba(10, 23, 71, 0.4)',
-        cta: '0 10px 24px -8px rgba(236, 20, 140, 0.55)',
+        cta: '0 10px 24px -8px rgba(249, 115, 22, 0.55)',
         pill: '0 6px 18px -6px rgba(10, 23, 71, 0.3)',
       },
       borderRadius: {

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
+import PageSections from '@/components/PageSections';
 import { site } from '@/content/site';
 import { serviceAreas } from '@/content/home';
 
@@ -59,6 +60,30 @@ export default function AreasPage() {
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Areas We Serve' }]}
       />
 
+      {/* Service area map */}
+      <section className="bg-cream py-16">
+        <div className="container-page">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-brand-600">
+              On the Map
+            </span>
+            <h2 className="mt-4 section-title text-brand-700">Our Service Area</h2>
+            <p className="mt-3 text-brand-600">
+              Based in {site.location}, proudly serving the Greater Cincinnati Tri-State area.
+            </p>
+          </div>
+          <div className="mt-8 overflow-hidden rounded-2xl shadow-card ring-1 ring-brand-100">
+            <iframe
+              title="Degree of Comfort service area map"
+              src="https://www.google.com/maps?q=Cincinnati,+Ohio&z=10&output=embed"
+              className="h-[420px] w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="py-16">
         <div className="container-page">
           {/* Counties */}
@@ -115,6 +140,7 @@ export default function AreasPage() {
           </div>
         </div>
       </section>
+      <PageSections />
     </>
   );
 }

@@ -103,63 +103,6 @@ export const companyPages: CompanyPage[] = [
       { q: 'What areas do you serve?', a: 'We serve Cincinnati and the surrounding Tri-State area. See our Areas We Serve page for the full list of counties and cities.' },
     ],
   },
-  {
-    slug: 'specials',
-    title: 'Specials & Coupons',
-    eyebrow: 'Current Offers',
-    intro: [
-      'Save on the service your home needs with our current promotions. Mention the offer when you call, and ask about seasonal deals and new-customer savings.',
-    ],
-    bullets: [
-      '$89 Cooling Checkup',
-      'Free water quality test with any plumbing visit',
-      '$75 off your first plumbing repair',
-      'Financing for qualified buyers',
-    ],
-  },
-  {
-    slug: 'free-estimate',
-    title: 'Free Estimate',
-    eyebrow: 'No Obligation',
-    intro: [
-      'Thinking about a new system or a bigger project? Get a free, no-obligation estimate. We will assess your home, lay out your options in plain language, and give you a written price.',
-      'No pressure, no jargon, just the information you need to make a confident decision.',
-    ],
-    bullets: [
-      'Free, written, no-obligation estimates',
-      'Honest repair-versus-replace advice',
-      'Financing options explained upfront',
-    ],
-  },
-  {
-    slug: 'comfort-club',
-    title: 'Join the Comfort Club',
-    eyebrow: 'Membership',
-    intro: [
-      'Comfort Club members skip the line and pay less. For one simple membership, you get priority scheduling, seasonal tune-ups, and a discount on every repair.',
-      'It is the easiest way to keep your home running smoothly all year.',
-    ],
-    bullets: [
-      'Priority same-day scheduling',
-      'Two seasonal tune-ups per year',
-      'Discount on all repairs',
-      'No overtime or weekend fees',
-    ],
-  },
-  {
-    slug: 'heat-pump-incentives',
-    title: 'Heat Pump Incentives & Costs',
-    eyebrow: 'Save on Efficiency',
-    intro: [
-      'Heat pumps heat and cool your home from a single efficient system, and there has never been a better time to consider one. Federal and utility incentives can offset a meaningful share of the cost for qualifying systems.',
-      'We will help you understand what is available, what a system costs, and what it could save you. Ask us for a free assessment.',
-    ],
-    bullets: [
-      'Year-round heating and cooling in one system',
-      'May qualify for federal and utility incentives',
-      'Lower monthly energy use than older systems',
-    ],
-  },
 ];
 
 export const getCompanyPage = (slug: string) => companyPages.find((p) => p.slug === slug);

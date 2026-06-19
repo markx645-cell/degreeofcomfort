@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
+import PageSections from '@/components/PageSections';
 import { companyPages, getCompanyPage } from '@/content/companyPages';
 import { site } from '@/content/site';
 
@@ -123,6 +124,7 @@ export default async function CompanyRoute({ params }: { params: Promise<{ slug:
           </aside>
         </div>
       </section>
+      <PageSections />
     </>
   );
 }
