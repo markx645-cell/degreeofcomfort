@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-display: 'Poppins', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-bold tracking-tight text-brand-950;
+  }
+
+  /* Anchor offset so sticky header doesn't cover section headings */
+  section[id] {
+    scroll-margin-top: 7rem;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-400;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent-500 text-white shadow-cta hover:bg-accent-600 hover:-translate-y-0.5;
+  }
+
+  .btn-brand {
+    @apply btn bg-brand-gradient text-white shadow-cta hover:brightness-105 hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-white/70 text-white hover:bg-white hover:text-brand-700;
+  }
+
+  .btn-ghost {
+    @apply btn border-2 border-brand-200 text-brand-700 hover:border-brand-400 hover:bg-brand-50;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-brand-600;
+  }
+
+  .card {
+    @apply rounded-3xl bg-white p-7 shadow-card ring-1 ring-brand-900/5 transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1.5 shadow-card-hover;
+  }
+}
