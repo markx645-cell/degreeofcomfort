@@ -85,3 +85,14 @@ export const serviceAreas = {
   left: ['Boone County', 'Butler County', 'Campbell County', 'Kenton County', 'Hamilton County', 'Pendleton County'],
   right: ['Dearborn County', 'Clermont County', 'Warren County', 'Grant County', 'Gallatin County', 'Bracken County'],
 };
+
+// Sample reviews — REPLACE with your real Google/Facebook reviews before going
+// live. Showing invented reviews as if real violates Google and FTC rules.
+export const testimonials = [
+  { name: 'Sample Review', location: 'Cincinnati, OH', rating: 5, text: 'Fast, friendly, and the price was exactly what they quoted. Had our AC running again the same afternoon.' },
+  { name: 'Sample Review', location: 'Florence, KY', rating: 5, text: 'The technician walked me through everything and never pushed a new system I did not need. Will use again.' },
+  { name: 'Sample Review', location: 'Erlanger, KY', rating: 5, text: 'Showed up on time, left the work area spotless, and fixed our water heater in one visit.' },
+  { name: 'Sample Review', location: 'Mason, OH', rating: 5, text: 'Booked online in the morning and had heat back by evening. Honest, professional, and reasonably priced.' },
+  { name: 'Sample Review', location: 'Covington, KY', rating: 5, text: 'Installed our EV charger to code and checked the panel first. Clean, careful work.' },
+  { name: 'Sample Review', location: 'West Chester, OH', rating: 5, text: 'Upfront pricing, no surprises, and genuinely nice people. Highly recommend.' },
+];

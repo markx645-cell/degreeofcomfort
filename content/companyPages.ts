@@ -12,66 +12,6 @@ export type CompanyPage = {
 
 export const companyPages: CompanyPage[] = [
   {
-    slug: 'about',
-    title: 'About Us',
-    eyebrow: 'Our Story',
-    intro: [
-      'Degree of Comfort is a locally owned heating, cooling, plumbing, and electrical company serving Cincinnati and surrounding areas. We started with a simple idea: treat every home like our own and every customer like a neighbor.',
-      'That means showing up when we say we will, quoting a flat-rate price before any work starts, and never selling you something you do not need. Our technicians are background-checked, trained on every major brand, and genuinely happy to help.',
-      'Whether it is a midsummer AC breakdown, a slow drain, or an electrical panel that has seen better days, you get one trusted crew for the whole home.',
-    ],
-    bullets: [
-      'Family owned and operated',
-      'Same-day service available',
-      'Upfront, flat-rate pricing',
-      'Satisfaction guaranteed on every job',
-    ],
-  },
-  {
-    slug: 'difference',
-    title: 'The Degree of Comfort Difference',
-    eyebrow: 'Why Us',
-    intro: [
-      'Plenty of companies can fix a furnace. What sets us apart is how we do it: honest advice, clean job sites, and pricing you approve before we start.',
-      'We would rather earn a customer for life than win a single oversized sale. If a repair makes more sense than a replacement, we will tell you so.',
-    ],
-    bullets: [
-      'No-pressure, repair-first recommendations',
-      'Flat-rate pricing with no overtime fees',
-      'Licensed, insured, and background-checked technicians',
-      'Clean, respectful service in your home',
-    ],
-  },
-  {
-    slug: 'careers',
-    title: "We're Hiring",
-    eyebrow: 'Careers',
-    intro: [
-      'We are always looking for skilled, friendly people who take pride in their work. If you are a technician, apprentice, or office team member who wants to grow with a company that invests in its people, we want to hear from you.',
-      'Reach out by phone or email and tell us a little about yourself. We will take it from there.',
-    ],
-    bullets: [
-      'Competitive pay and benefits',
-      'Ongoing paid training',
-      'A supportive, family-style team',
-      'Room to grow into leadership',
-    ],
-  },
-  {
-    slug: 'financing',
-    title: 'Financing',
-    eyebrow: 'Flexible Payments',
-    intro: [
-      'A new system should not have to wait for the perfect time. We offer flexible financing so qualified buyers can get comfortable now and pay over time.',
-      'Ask us about current financing options when you schedule. Approval is quick, and our team will walk you through what fits your budget.',
-    ],
-    bullets: [
-      'Quick application and decision',
-      'Plans for qualified buyers',
-      'Apply when you book your estimate',
-    ],
-  },
-  {
     slug: 'referrals',
     title: 'Referral Program',
     eyebrow: 'Refer a Friend',

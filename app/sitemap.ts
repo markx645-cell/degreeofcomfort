@@ -10,7 +10,7 @@ export const dynamic = 'force-static';
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url.replace(/\/$/, '');
 
-  const staticRoutes = ['', '/services', '/blog', '/areas', '/specials', '/free-estimate', '/comfort-club', '/heat-pump-incentives'].map((path) => ({
+  const staticRoutes = ['', '/services', '/blog', '/areas', '/specials', '/free-estimate', '/comfort-club', '/heat-pump-incentives', '/about', '/careers', '/financing', '/difference', '/customer-success-stories', '/reviews'].map((path) => ({
     url: `${base}${path}/`,
     changeFrequency: 'weekly' as const,
     priority: path === '' ? 1 : 0.8,

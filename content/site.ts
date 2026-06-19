@@ -164,7 +164,15 @@ export const nav: NavItem[] = [
     children: [
       { label: "We're Hiring! Apply Today", href: '/careers' },
       { label: 'Financing', href: '/financing' },
-      { label: 'The Degree of Comfort Difference', href: '/difference' },
+      {
+        label: 'The Degree of Comfort Difference',
+        href: '/difference',
+        arrow: true,
+        children: [
+          { label: 'Customer Success Stories', href: '/customer-success-stories' },
+          { label: 'Reviews', href: '/reviews' },
+        ],
+      },
       { label: 'Referral Program', href: '/referrals' },
       { label: 'Degree of Comfort University', href: '/university' },
       { label: 'Blog', href: '/blog' },
