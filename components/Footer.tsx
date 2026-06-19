@@ -13,14 +13,18 @@ export default function Footer() {
           {/* Brand + newsletter */}
           <div>
             <Link href="/" className="flex items-center gap-2.5">
-              <span className="grid h-11 w-11 place-items-center rounded-full bg-gold-500 ring-4 ring-brand-600">
-                <Icon name="heart" className="h-5 w-5 text-brand-700" />
-              </span>
+              <img
+                src="/mascot.png"
+                alt="Degree of Comfort mascot"
+                width={48}
+                height={48}
+                className="h-12 w-12 flex-shrink-0 object-contain"
+              />
               <span className="leading-none">
-                <span className="block font-display text-lg font-extrabold uppercase tracking-tight text-white">
-                  Degree <span className="text-gold-500">of</span> Comfort
+                <span className="block whitespace-nowrap font-logo text-xl font-black tracking-tight text-white">
+                  Degree of Comfort
                 </span>
-                <span className="mt-1 block text-[9px] font-bold uppercase tracking-[0.18em] text-brand-300">
+                <span className="mt-1 block text-[9px] font-bold uppercase tracking-[0.16em] text-brand-300">
                   {site.tagline}
                 </span>
               </span>

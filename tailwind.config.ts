@@ -49,6 +49,7 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        logo: ['var(--font-logo)', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'hero-pink': 'linear-gradient(115deg, #ec148c 0%, #cc0d77 60%, #a80a62 100%)',

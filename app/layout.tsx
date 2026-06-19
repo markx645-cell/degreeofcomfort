@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Montserrat } from 'next/font/google';
+import { Inter, Montserrat, Merriweather } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -15,6 +15,13 @@ const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['600', '700', '800', '900'],
   variable: '--font-display',
+  display: 'swap',
+});
+
+const merriweather = Merriweather({
+  subsets: ['latin'],
+  weight: ['700', '900'],
+  variable: '--font-logo',
   display: 'swap',
 });
 
@@ -48,7 +55,7 @@ export const viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${inter.variable} ${montserrat.variable} ${merriweather.variable}`}>
       <body>
         <Header />
         <main>{children}</main>

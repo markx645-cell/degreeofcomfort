@@ -115,15 +115,19 @@ export default function Header() {
 function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5">
-      {/* Placeholder mascot mark — replace with /public logo when ready */}
-      <span className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-full bg-gold-500 ring-4 ring-brand-600">
-        <Icon name="heart" className="h-6 w-6 text-brand-700" />
-      </span>
+      {/* Save the bulldog mascot as public/mascot.png */}
+      <img
+        src="/mascot.png"
+        alt="Degree of Comfort mascot"
+        width={56}
+        height={56}
+        className="h-12 w-12 flex-shrink-0 object-contain sm:h-14 sm:w-14"
+      />
       <span className="leading-none">
-        <span className="block font-display text-xl font-extrabold uppercase tracking-tight text-brand-700 sm:text-2xl">
-          Degree <span className="text-gold-500">of</span> Comfort
+        <span className="block whitespace-nowrap font-logo text-xl font-black tracking-tight text-brand-700 sm:text-2xl xl:text-[28px]">
+          Degree of Comfort
         </span>
-        <span className="mt-1 block text-[9px] font-bold uppercase tracking-[0.16em] text-brand-400">
+        <span className="mt-1 block text-[9px] font-bold uppercase tracking-[0.14em] text-brand-400 sm:text-[10px]">
           Heating · Cooling · Electrical · Plumbing
         </span>
       </span>
