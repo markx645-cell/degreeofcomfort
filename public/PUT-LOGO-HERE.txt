@@ -1,7 +1,0 @@
-Save your bulldog mascot logo in THIS folder as:
-
-    mascot.png
-
-The header and footer load it from /mascot.png. A transparent PNG works best.
-Once the file is here, refresh the browser and the logo appears automatically.
-You can delete this note after adding the image.
