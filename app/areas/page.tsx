@@ -1,52 +1,30 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import PageSections from '@/components/PageSections';
 import MainWithSidebar from '@/components/Sidebar';
 import { site } from '@/content/site';
-import { serviceAreas } from '@/content/home';
+import { serviceCounties, serviceCommunities, communityCount } from '@/content/areas';
 
 export const metadata: Metadata = {
   title: 'Areas We Serve',
-  description: `${site.name} provides heating, cooling, plumbing, and electrical service across ${site.serviceArea}. See the counties, cities, and towns we cover.`,
+  description: `${site.name} provides heating, cooling, plumbing, and electrical service to ${communityCount}+ communities across ${serviceCounties.length} counties in the Greater Cincinnati area.`,
   alternates: { canonical: '/areas' },
 };
 
-// Cities & towns across the Greater Cincinnati / Tri-State area.
-const cities = [
-  'Cincinnati, OH',
-  'Covington, KY',
-  'Newport, KY',
-  'Florence, KY',
-  'Erlanger, KY',
-  'Fort Mitchell, KY',
-  'Fort Thomas, KY',
-  'Independence, KY',
-  'Hebron, KY',
-  'Burlington, KY',
-  'Mason, OH',
-  'West Chester, OH',
-  'Loveland, OH',
-  'Milford, OH',
-  'Blue Ash, OH',
-  'Hamilton, OH',
-  'Fairfield, OH',
-  'Lawrenceburg, IN',
-];
+const areaSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HVACBusiness',
+  name: site.name,
+  url: `${site.url}/areas`,
+  telephone: site.primaryPhone.number,
+  areaServed: serviceCounties.map((c) => ({
+    '@type': 'AdministrativeArea',
+    name: `${c.name}, ${c.state}`,
+  })),
+};
 
 export default function AreasPage() {
-  const counties = [...serviceAreas.left, ...serviceAreas.right];
-
-  const areaSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HVACBusiness',
-    name: site.name,
-    url: `${site.url}/areas`,
-    telephone: site.primaryPhone.number,
-    areaServed: counties.map((c) => ({ '@type': 'AdministrativeArea', name: c })),
-  };
-
   return (
     <>
       <script
@@ -57,7 +35,7 @@ export default function AreasPage() {
       <PageHero
         eyebrow="Service Area"
         title="Areas We Serve"
-        description={`We bring same-day heating, cooling, plumbing, and electrical service to ${site.serviceArea}. If you are nearby, there is a good chance we are already in your neighborhood.`}
+        description={`We bring same-day heating, cooling, plumbing, and electrical service to ${communityCount}+ communities across the Greater Cincinnati Tri-State area. If you are nearby, there is a good chance we are already in your neighborhood.`}
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Areas We Serve' }]}
       />
 
@@ -70,33 +48,47 @@ export default function AreasPage() {
             </span>
             <h2 className="mt-4 section-title text-brand-700">Counties We Serve</h2>
           </div>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {counties.map((county) => (
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+            {serviceCounties.map((c) => (
               <div
-                key={county}
+                key={c.name}
                 className="flex items-center gap-2.5 rounded-xl bg-brand-50 px-4 py-3 text-sm font-semibold text-brand-800"
               >
                 <Icon name="pin" className="h-4 w-4 flex-shrink-0 text-pink-500" />
-                {county}
+                {c.name}, {c.state}
               </div>
             ))}
           </div>
 
-          {/* Cities */}
+          {/* Communities by county */}
           <div className="mx-auto mt-16 max-w-2xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-brand-600">
-              Cities &amp; Towns
+              Cities &amp; Neighborhoods
             </span>
-            <h2 className="mt-4 section-title text-brand-700">Cities &amp; Towns We Cover</h2>
+            <h2 className="mt-4 section-title text-brand-700">Communities We Serve</h2>
+            <p className="mt-3 text-brand-600">
+              {communityCount}+ neighborhoods, cities, and towns across the Tri-State.
+            </p>
           </div>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {cities.map((city) => (
-              <div
-                key={city}
-                className="flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-medium text-ink/80 ring-1 ring-brand-100"
-              >
-                <Icon name="check" className="h-4 w-4 flex-shrink-0 text-lime-500" />
-                {city}
+
+          <div className="mt-8 space-y-8">
+            {serviceCommunities.map((group) => (
+              <div key={group.county}>
+                <h3 className="flex items-center gap-2 font-display text-lg font-extrabold text-brand-700">
+                  <Icon name="pin" className="h-5 w-5 text-pink-500" />
+                  {group.county}
+                </h3>
+                <ul className="mt-3 columns-2 gap-x-4 sm:columns-3">
+                  {group.places.map((place) => (
+                    <li
+                      key={place}
+                      className="mb-1.5 flex break-inside-avoid gap-2 text-sm text-ink/75"
+                    >
+                      <Icon name="check" className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-lime-500" />
+                      {place}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

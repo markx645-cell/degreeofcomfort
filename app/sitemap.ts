@@ -3,6 +3,7 @@ import { site } from '@/content/site';
 import { services } from '@/content/services';
 import { servicePages } from '@/content/servicePages';
 import { companyPages } from '@/content/companyPages';
+import { locations } from '@/content/locations';
 import { posts } from '@/content/posts';
 
 export const dynamic = 'force-static';
@@ -34,6 +35,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
+  const locationRoutes = locations.map((l) => ({
+    url: `${base}/services/emergency-plumbing/${l.slug}/`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
   const postRoutes = posts.map((p) => ({
     url: `${base}/blog/${p.slug}/`,
     lastModified: p.date,
@@ -41,5 +48,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...subServiceRoutes, ...companyRoutes, ...postRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...subServiceRoutes, ...companyRoutes, ...locationRoutes, ...postRoutes];
 }

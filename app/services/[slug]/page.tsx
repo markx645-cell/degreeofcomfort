@@ -10,10 +10,14 @@ import { services, getService, type Service } from '@/content/services';
 import { servicePages, getServicePage, type ServicePage } from '@/content/servicePages';
 import { site } from '@/content/site';
 
+// Slugs that have their own dedicated, fully built master page (so the generic
+// template route should NOT also generate them).
+const MASTER_SLUGS = new Set(['emergency-plumbing']);
+
 export function generateStaticParams() {
-  return [...services.map((s) => s.slug), ...servicePages.map((s) => s.slug)].map((slug) => ({
-    slug,
-  }));
+  return [...services.map((s) => s.slug), ...servicePages.map((s) => s.slug)]
+    .filter((slug) => !MASTER_SLUGS.has(slug))
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({

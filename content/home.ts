@@ -82,8 +82,8 @@ export const fundingPoints = [
 
 // Service-area columns
 export const serviceAreas = {
-  left: ['Boone County', 'Butler County', 'Campbell County', 'Kenton County', 'Hamilton County', 'Pendleton County'],
-  right: ['Dearborn County', 'Clermont County', 'Warren County', 'Grant County', 'Gallatin County', 'Bracken County'],
+  left: ['Hamilton County, OH', 'Kenton County, KY', 'Campbell County, KY', 'Boone County, KY'],
+  right: ['Clermont County, OH', 'Butler County, OH', 'Warren County, OH', 'Dearborn County, IN'],
 };
 
 // Sample reviews — REPLACE with your real Google/Facebook reviews before going
