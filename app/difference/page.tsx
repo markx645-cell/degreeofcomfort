@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import PageSections from '@/components/PageSections';
+import MainWithSidebar from '@/components/Sidebar';
 import { site } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -61,7 +62,8 @@ export default function DifferencePage() {
 
       {/* Intro + what sets us apart */}
       <section className="py-16">
-        <div className="container-page grid gap-10 lg:grid-cols-2 lg:items-center">
+        <MainWithSidebar>
+          <div className="grid gap-10 sm:grid-cols-2 sm:items-center">
           <div>
             <h2 className="section-title text-brand-700">More Than a Repair</h2>
             <p className="mt-4 text-sm leading-relaxed text-ink/70">
@@ -82,7 +84,8 @@ export default function DifferencePage() {
               </li>
             ))}
           </ul>
-        </div>
+          </div>
+        </MainWithSidebar>
       </section>
 
       {/* Community stories */}

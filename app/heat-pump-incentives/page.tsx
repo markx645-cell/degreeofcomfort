@@ -3,6 +3,7 @@ import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import PageSections from '@/components/PageSections';
 import Accordion from '@/components/Accordion';
+import MainWithSidebar from '@/components/Sidebar';
 import { site } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -114,7 +115,7 @@ export default function HeatPumpPage() {
       />
 
       <section className="py-16">
-        <div className="container-page">
+        <MainWithSidebar>
           <div className="mx-auto max-w-3xl text-center text-[17px] leading-relaxed text-ink/75">
             <p>
               A heat pump heats and cools your home from one efficient system, and right now federal
@@ -157,7 +158,7 @@ export default function HeatPumpPage() {
               Call {site.primaryPhone.number}
             </a>
           </div>
-        </div>
+        </MainWithSidebar>
       </section>
 
       <PageSections />

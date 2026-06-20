@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import PageSections from '@/components/PageSections';
+import { MapWidget, CouponWidget } from '@/components/Sidebar';
+import ServicesMenu from '@/components/ServicesMenu';
 import { posts, getPost } from '@/content/posts';
 import { site } from '@/content/site';
 
@@ -201,6 +203,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 ))}
               </ul>
             </div>
+            <MapWidget />
+            <CouponWidget />
+            <ServicesMenu />
           </aside>
         </div>
       </article>

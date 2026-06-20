@@ -62,6 +62,96 @@ export const servicePages: ServicePage[] = [
   { slug: 'electrical-inspections', title: 'Electrical Inspections', category: 'Electrical', parentSlug: 'electrical', blurb: 'Code-compliant safety inspections for peace of mind.' },
   { slug: 'home-rewiring', title: 'Home Rewiring', category: 'Electrical', parentSlug: 'electrical', blurb: 'Update aging wiring for a safer, modern home.' },
   { slug: 'ev-chargers', title: 'EV Chargers', category: 'Electrical', parentSlug: 'electrical', blurb: 'Level 2 EV charger installation sized to your panel.' },
+
+  // Additional services surfaced in the sidebar services menu
+  { slug: 'whole-house-repiping', title: 'Whole-House Repiping', category: 'Plumbing', parentSlug: 'plumbing', blurb: 'Replace old, failing pipes throughout your home with durable modern plumbing.' },
+  { slug: 'gas-line-repair-replacement', title: 'Gas Line Repair & Replacement', category: 'Plumbing', parentSlug: 'plumbing', blurb: 'Safe gas line installation, repair, and leak detection by licensed pros.' },
+  { slug: 'pipe-repair-replacement', title: 'Pipe Repair & Replacement', category: 'Plumbing', parentSlug: 'plumbing', blurb: 'Fix leaks and corrosion with lasting pipe repair and replacement.' },
+  { slug: 'garbage-disposals', title: 'Garbage Disposals', category: 'Plumbing', parentSlug: 'plumbing', blurb: 'Garbage disposal repair and installation for a smoother kitchen.' },
+  { slug: 'mini-split-repair', title: 'Mini-Split Repair', category: 'Cooling', parentSlug: 'air-conditioning', blurb: 'Fast repair for ductless mini-split systems.' },
+  { slug: 'mini-split-installation', title: 'Mini-Split Installation', category: 'Cooling', parentSlug: 'air-conditioning', blurb: 'Ductless mini-split installation for additions, garages, and tricky rooms.' },
+  { slug: 'electrical-panel-replacement', title: 'Electrical Panel Replacement', category: 'Electrical', parentSlug: 'electrical', blurb: 'Upgrade an aging or overloaded electrical panel to safely power your home.' },
+  { slug: 'switches-outlets', title: 'Switches & Outlets', category: 'Electrical', parentSlug: 'electrical', blurb: 'Outlet and switch installation, repair, and upgrades, including GFCI and USB.' },
+  { slug: 'electrical-mast-repair', title: 'Electrical Mast Repair', category: 'Electrical', parentSlug: 'electrical', blurb: 'Repair a damaged electrical service mast to safely restore power.' },
 ];
 
 export const getServicePage = (slug: string) => servicePages.find((s) => s.slug === slug);
+
+// Grouped services list for the sidebar accordion. Items without a dedicated
+// page link to their category page.
+export const serviceMenu: { category: string; href: string; items: { label: string; href: string }[] }[] = [
+  {
+    category: 'Plumbing Services',
+    href: '/services/plumbing',
+    items: [
+      { label: 'Whole-House Repiping', href: '/services/whole-house-repiping' },
+      { label: 'Gas Line Repair & Replacement', href: '/services/gas-line-repair-replacement' },
+      { label: 'Pipe Repair & Replacement', href: '/services/pipe-repair-replacement' },
+      { label: 'Garbage Disposals', href: '/services/garbage-disposals' },
+      { label: 'Plumbing Installation', href: '/services/plumbing-installation' },
+      { label: 'Sewer Repair & Replacement', href: '/services/sewer-repair-replacement' },
+      { label: 'Water Heater Maintenance', href: '/services/water-heater-maintenance' },
+      { label: 'Leak Detection', href: '/services/leak-detection' },
+      { label: 'Leak Repair', href: '/services/leak-repair' },
+      { label: 'Plumbing Repair', href: '/services/plumbing-repair' },
+      { label: 'Drains', href: '/services/drain-cleaning' },
+      { label: 'Sump Pumps', href: '/services/sump-pumps' },
+      { label: 'Drain Cleaning', href: '/services/drain-cleaning' },
+      { label: 'Emergency Plumbing', href: '/services/emergency-plumbing' },
+      { label: 'Water Heater Installation', href: '/services/water-heater-installation' },
+      { label: 'Faucet Repair & Replacement', href: '/services/faucet-repair-replacement' },
+      { label: 'Water Heater Repair', href: '/services/water-heater-repair' },
+      { label: 'Tankless Water Heater', href: '/services/tankless-water-heater' },
+      { label: 'Water Quality', href: '/services/water-quality' },
+    ],
+  },
+  {
+    category: 'Heating Services',
+    href: '/services/heating',
+    items: [
+      { label: 'Furnace Maintenance', href: '/services/furnace-maintenance' },
+      { label: 'Furnace Installation & Replacement', href: '/services/furnace-installation-replacement' },
+      { label: 'Furnace Repair', href: '/services/furnace-repair' },
+      { label: 'Heat Pumps', href: '/services/heat-pumps' },
+    ],
+  },
+  {
+    category: 'Air Conditioning Services',
+    href: '/services/air-conditioning',
+    items: [
+      { label: 'Mini-Split Repair', href: '/services/mini-split-repair' },
+      { label: 'AC Maintenance', href: '/services/ac-maintenance' },
+      { label: 'Mini-Split Installation', href: '/services/mini-split-installation' },
+      { label: 'AC Installation & Replacement', href: '/services/ac-installation-replacement' },
+      { label: 'AC Repair', href: '/services/ac-repair' },
+      { label: 'Mini-Splits', href: '/services/mini-splits' },
+    ],
+  },
+  {
+    category: 'Electrical Services',
+    href: '/services/electrical',
+    items: [
+      { label: 'Home Rewiring', href: '/services/home-rewiring' },
+      { label: 'Electrical Inspections', href: '/services/electrical-inspections' },
+      { label: 'Surge Protector Installation', href: '/services/surge-protector-installation' },
+      { label: 'Lighting', href: '/services/lighting' },
+      { label: 'Indoor Lighting', href: '/services/indoor-lighting' },
+      { label: 'Exhaust Fan Installation & Repair', href: '/services/exhaust-fan-installation-repair' },
+      { label: 'Ceiling Fan Installation', href: '/services/ceiling-fan-installation' },
+      { label: 'Lighting Fixture Installation', href: '/services/lighting-fixture-installation' },
+      { label: 'Garage Lighting', href: '/services/garage-lighting' },
+      { label: 'Basement Lighting', href: '/services/basement-lighting' },
+      { label: 'Recessed Lighting Installation', href: '/services/recessed-lighting' },
+      { label: 'LED Lighting', href: '/services/led-lighting' },
+      { label: 'Outdoor Lighting', href: '/services/outdoor-lighting' },
+      { label: 'Patio Lighting', href: '/services/patio-lighting' },
+      { label: 'Landscape Lighting', href: '/services/landscape-lighting' },
+      { label: 'Hot Tub Wiring', href: '/services/hot-tub-wiring' },
+      { label: 'Holiday Lighting', href: '/services/holiday-lighting' },
+      { label: 'Electrical Panel Replacement', href: '/services/electrical-panel-replacement' },
+      { label: 'EV Chargers', href: '/services/ev-chargers' },
+      { label: 'Switches & Outlets', href: '/services/switches-outlets' },
+      { label: 'Electrical Mast Repair', href: '/services/electrical-mast-repair' },
+    ],
+  },
+];

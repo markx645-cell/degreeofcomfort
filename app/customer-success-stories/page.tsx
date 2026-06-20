@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import PageSections from '@/components/PageSections';
+import MainWithSidebar from '@/components/Sidebar';
 import { site } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -50,7 +51,8 @@ export default function SuccessStoriesPage() {
       />
 
       <section className="py-16">
-        <div className="container-page grid gap-6 md:grid-cols-2">
+        <MainWithSidebar>
+          <div className="grid gap-6 md:grid-cols-2">
           {stories.map((s) => (
             <div key={s.title} className="card flex gap-4">
               <span className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-2xl bg-pink-500 text-white">
@@ -64,15 +66,16 @@ export default function SuccessStoriesPage() {
           ))}
         </div>
 
-        <div className="container-page mt-10 text-center">
-          <p className="text-sm text-ink/60">
-            Have a story of your own? We would love to hear it.
-          </p>
-          <a href={site.primaryPhone.href} className="btn-pink mt-4">
-            <Icon name="phone" className="h-4 w-4" />
-            {site.primaryPhone.number}
-          </a>
-        </div>
+          <div className="mt-10 text-center">
+            <p className="text-sm text-ink/60">
+              Have a story of your own? We would love to hear it.
+            </p>
+            <a href={site.primaryPhone.href} className="btn-pink mt-4">
+              <Icon name="phone" className="h-4 w-4" />
+              {site.primaryPhone.number}
+            </a>
+          </div>
+        </MainWithSidebar>
       </section>
 
       <PageSections />

@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import PageSections from '@/components/PageSections';
+import { MapWidget, CouponWidget } from '@/components/Sidebar';
+import ServicesMenu from '@/components/ServicesMenu';
 import { services, getService, type Service } from '@/content/services';
 import { servicePages, getServicePage, type ServicePage } from '@/content/servicePages';
 import { site } from '@/content/site';
@@ -146,6 +148,9 @@ function MainService({ service }: { service: Service }) {
                 ))}
               </ul>
             </div>
+            <MapWidget />
+            <CouponWidget />
+            <ServicesMenu />
           </aside>
         </div>
       </section>
@@ -279,6 +284,9 @@ function SubService({ page }: { page: ServicePage }) {
                 ))}
               </ul>
             </div>
+            <MapWidget />
+            <CouponWidget />
+            <ServicesMenu />
           </aside>
         </div>
       </section>

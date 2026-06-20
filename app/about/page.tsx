@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import PageSections from '@/components/PageSections';
+import MainWithSidebar from '@/components/Sidebar';
 import { site } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export default function AboutPage() {
 
       {/* Welcome to the family */}
       <section className="py-16">
-        <div className="container-page mx-auto max-w-3xl">
+        <MainWithSidebar>
           {/* Video placeholder */}
           <div className="relative grid aspect-video place-items-center overflow-hidden rounded-2xl bg-brand-900">
             <button
@@ -93,7 +94,7 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
+        </MainWithSidebar>
       </section>
 
       {/* Why we wear orange */}

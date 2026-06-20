@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import PageSections from '@/components/PageSections';
+import MainWithSidebar from '@/components/Sidebar';
 import { site } from '@/content/site';
 import { testimonials } from '@/content/home';
 
@@ -26,7 +27,7 @@ export default function ReviewsPage() {
       />
 
       <section className="py-16">
-        <div className="container-page">
+        <MainWithSidebar>
           {/* Rating summary */}
           <div className="mx-auto max-w-xl rounded-2xl bg-cream p-8 text-center ring-1 ring-brand-100">
             <div className="font-display text-5xl font-black text-brand-700">{site.rating}</div>
@@ -71,7 +72,7 @@ export default function ReviewsPage() {
               Leave a Review
             </a>
           </div>
-        </div>
+        </MainWithSidebar>
       </section>
 
       <PageSections />

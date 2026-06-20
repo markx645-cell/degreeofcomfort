@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import PageSections from '@/components/PageSections';
+import MainWithSidebar from '@/components/Sidebar';
 import { services } from '@/content/services';
 import { site } from '@/content/site';
 
@@ -26,7 +27,8 @@ export default function ServicesIndex() {
       />
 
       <section className="py-16 sm:py-20">
-        <div className="container-page space-y-6">
+        <MainWithSidebar>
+          <div className="space-y-6">
           {services.map((s, i) => (
             <div
               key={s.slug}
@@ -80,7 +82,8 @@ export default function ServicesIndex() {
               </span>
             </div>
           ))}
-        </div>
+          </div>
+        </MainWithSidebar>
       </section>
       <PageSections />
     </>

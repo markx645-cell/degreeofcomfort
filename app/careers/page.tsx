@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import PageSections from '@/components/PageSections';
+import MainWithSidebar from '@/components/Sidebar';
 import { site } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -103,8 +104,15 @@ export default function CareersPage() {
 
       {/* Positions + training + confidentiality */}
       <section className="bg-cream py-16">
-        <div className="container-page grid gap-6 lg:grid-cols-3">
+        <MainWithSidebar>
+          <div className="grid gap-6">
           <div className="card">
+            <div
+              className="mb-5 aspect-[16/7] rounded-xl bg-brand-100 bg-cover bg-center"
+              style={{ backgroundImage: 'url(/careers-1.jpg)' }}
+              role="img"
+              aria-label="Available positions"
+            />
             <h3 className="font-display text-lg font-extrabold text-brand-700">Available Positions</h3>
             <p className="mt-2 text-sm text-ink/70">
               We hire across the trades — service technicians, installers, apprentices, and office
@@ -115,6 +123,12 @@ export default function CareersPage() {
             </a>
           </div>
           <div className="card">
+            <div
+              className="mb-5 aspect-[16/7] rounded-xl bg-brand-100 bg-cover bg-center"
+              style={{ backgroundImage: 'url(/careers-2.jpg)' }}
+              role="img"
+              aria-label="Training program"
+            />
             <h3 className="font-display text-lg font-extrabold text-brand-700">
               Interested in Learning the Trade?
             </h3>
@@ -126,13 +140,30 @@ export default function CareersPage() {
               Learn More
             </Link>
           </div>
-          <div className="card">
-            <h3 className="font-display text-lg font-extrabold text-brand-700">
-              We Promise Confidentiality
-            </h3>
-            <p className="mt-2 text-sm text-ink/70">
-              When you apply, your information stays private. Reaching out to us never affects your
-              current job — your search is just between us.
+          </div>
+        </MainWithSidebar>
+      </section>
+
+      {/* Confidentiality banner */}
+      <section className="relative overflow-hidden bg-brand-900">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(/careers-confidentiality.jpg)' }}
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/40"
+          aria-hidden
+        />
+        <div className="container-page relative py-20">
+          <div className="max-w-2xl text-white">
+            <h2 className="font-display text-4xl font-black uppercase leading-[1.05] text-pink-500 sm:text-5xl">
+              When You Apply, We Promise Confidentiality.
+            </h2>
+            <p className="mt-5 text-sm leading-relaxed text-white/90 sm:text-base">
+              We promise complete confidentiality and privacy, and we will not contact your current
+              or previous employer without your permission. Reaching out to us never affects your
+              current job. Send us your resume today — we look forward to meeting you soon!
             </p>
           </div>
         </div>

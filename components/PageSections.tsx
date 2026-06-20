@@ -8,6 +8,7 @@ import { benefits, awards, clubPerks, fundingPoints, serviceAreas } from '@/cont
 export default function PageSections() {
   return (
     <>
+      <OurDifferenceBanner />
       <IntroColumns />
       <WhyChoose />
       <TornEdge fill="#1f48c8" />
@@ -19,6 +20,37 @@ export default function PageSections() {
       <TornEdge fill="#1f48c8" />
       <BookAndAreas />
     </>
+  );
+}
+
+/* ─────────────── Our Difference banner ─────────────── */
+export function OurDifferenceBanner() {
+  return (
+    <section className="relative overflow-hidden bg-brand-900">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: 'url(/our-difference.jpg)' }}
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/40"
+        aria-hidden
+      />
+      <div className="container-page relative py-20">
+        <div className="max-w-2xl text-white">
+          <h2 className="font-display text-4xl font-black uppercase leading-[1.05] text-pink-500 sm:text-5xl">
+            Our Difference.
+          </h2>
+          <p className="mt-5 text-sm leading-relaxed text-white/90 sm:text-base">
+            We believe one of life&rsquo;s greatest gifts is being part of a thriving community —
+            surrounded by family and friends who share the same goals and dreams. We are fortunate to
+            live and work across {site.serviceArea} and the surrounding Tri-State, communities that
+            have welcomed and embraced us over the years. We are happy to give back through a variety
+            of efforts, some very public and others totally private. We are a people-first company.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }
 

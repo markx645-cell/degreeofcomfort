@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import PageSections from '@/components/PageSections';
+import MainWithSidebar from '@/components/Sidebar';
 import { posts } from '@/content/posts';
 import { site } from '@/content/site';
 
@@ -36,7 +37,7 @@ export default function BlogIndex() {
       />
 
       <section className="py-16 sm:py-20">
-        <div className="container-page">
+        <MainWithSidebar>
           {/* Featured post */}
           <Link
             href={`/blog/${featured.slug}`}
@@ -65,7 +66,7 @@ export default function BlogIndex() {
           </Link>
 
           {/* Grid */}
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {rest.map((post) => (
               <Link
                 key={post.slug}
@@ -91,7 +92,7 @@ export default function BlogIndex() {
               </Link>
             ))}
           </div>
-        </div>
+        </MainWithSidebar>
       </section>
       <PageSections />
     </>

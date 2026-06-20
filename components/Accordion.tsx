@@ -5,11 +5,17 @@ import { useState, type ReactNode } from 'react';
 export default function Accordion({
   items,
   defaultOpen = 0,
+  variant = 'card',
 }: {
   items: { title: string; body: ReactNode }[];
   defaultOpen?: number;
+  variant?: 'card' | 'bar';
 }) {
   const [open, setOpen] = useState(defaultOpen);
+  const closedClass =
+    variant === 'bar'
+      ? 'bg-brand-700 text-white hover:bg-brand-800'
+      : 'bg-white text-brand-600 hover:bg-brand-50';
 
   return (
     <div className="space-y-3">
@@ -22,7 +28,7 @@ export default function Accordion({
               onClick={() => setOpen(isOpen ? -1 : i)}
               aria-expanded={isOpen}
               className={`flex w-full items-center justify-between gap-4 px-6 py-4 text-left font-display text-sm font-extrabold uppercase tracking-wide transition ${
-                isOpen ? 'bg-pink-500 text-white' : 'bg-white text-brand-600 hover:bg-brand-50'
+                isOpen ? 'bg-pink-500 text-white' : closedClass
               }`}
             >
               {item.title}

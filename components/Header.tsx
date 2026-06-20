@@ -79,20 +79,26 @@ export default function Header() {
                       {item.children.map((child) =>
                         child.children ? (
                           <div key={child.label} className="group/sub relative">
-                            <span className="flex cursor-default items-center justify-between border-b border-brand-100 px-5 py-2.5 text-sm font-semibold text-brand-900 transition group-hover/sub:bg-pink-500 group-hover/sub:text-white">
+                            <Link
+                              href={child.href}
+                              className="flex items-center justify-between border-b border-brand-100 px-5 py-2.5 text-sm font-semibold text-brand-900 transition group-hover/sub:bg-pink-500 group-hover/sub:text-white"
+                            >
                               {child.label}
                               <Icon name="chevron" className="h-3.5 w-3.5" />
-                            </span>
+                            </Link>
                             {/* Nested flyout — opens to the left */}
                             <div className="invisible absolute right-full top-0 z-50 w-72 opacity-0 transition-all duration-150 group-hover/sub:visible group-hover/sub:opacity-100">
                               <div className="mr-px rounded-l-lg border border-brand-100 bg-white shadow-card">
                                 {child.children.map((sub) =>
                                   sub.children ? (
                                     <div key={sub.label} className="group/sub2 relative">
-                                      <span className="flex cursor-default items-center justify-between border-b border-brand-100 px-5 py-2.5 text-sm font-semibold text-brand-900 transition last:border-b-0 group-hover/sub2:bg-pink-500 group-hover/sub2:text-white">
+                                      <Link
+                                        href={sub.href}
+                                        className="flex items-center justify-between border-b border-brand-100 px-5 py-2.5 text-sm font-semibold text-brand-900 transition last:border-b-0 group-hover/sub2:bg-pink-500 group-hover/sub2:text-white"
+                                      >
                                         {sub.label}
                                         <Icon name="chevron" className="h-3.5 w-3.5" />
-                                      </span>
+                                      </Link>
                                       <div className="invisible absolute right-full top-0 z-50 w-72 opacity-0 transition-all duration-150 group-hover/sub2:visible group-hover/sub2:opacity-100">
                                         <div className="mr-px rounded-l-lg border border-brand-100 bg-white shadow-card">
                                           {sub.children.map((leaf) => (
