@@ -8,7 +8,7 @@ export const site = {
   shortName: 'Degree of Comfort',
   tagline: 'Heating · Cooling · Electrical · Plumbing',
   // Used for canonical URLs, sitemap, Open Graph
-  url: 'https://degree3trades.vercel.app',
+  url: 'https://degreeofcomfort.vercel.app',
   description:
     'Heating, cooling, plumbing, and electrical for the Tri-State area. Same-day service, upfront pricing, and a satisfaction guarantee on every job.',
   email: 'cincydegreeofcomfort@gmail.com',

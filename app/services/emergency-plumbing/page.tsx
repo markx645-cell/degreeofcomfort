@@ -3,8 +3,10 @@ import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import PageSections from '@/components/PageSections';
 import MainWithSidebar from '@/components/Sidebar';
+import Link from 'next/link';
 import Accordion from '@/components/Accordion';
 import { site } from '@/content/site';
+import { locations } from '@/content/locations';
 
 export const metadata: Metadata = {
   title: 'Emergency Plumbing',
@@ -310,6 +312,30 @@ export default function EmergencyPlumbingPage() {
               defaultOpen={0}
             />
           </div>
+
+          {/* Neighborhoods — links DOWN to location pages (internal-link mesh) */}
+          {locations.length > 0 && (
+            <div className="mt-12">
+              <h2 className="section-title text-brand-700">Emergency plumbing by neighborhood</h2>
+              <p className="mt-3 text-sm leading-relaxed text-ink/75">
+                We respond across {site.serviceArea}. For local detail on response times and the
+                plumbing issues common to older homes in your area, see your neighborhood:
+              </p>
+              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                {locations.map((l) => (
+                  <li key={l.slug}>
+                    <Link
+                      href={`/services/emergency-plumbing/${l.slug}`}
+                      className="flex items-center gap-2.5 rounded-xl bg-brand-50 px-4 py-3 text-sm font-semibold text-brand-800 transition hover:bg-brand-100 hover:text-pink-600"
+                    >
+                      <Icon name="pin" className="h-4 w-4 flex-shrink-0 text-pink-500" />
+                      Emergency plumber in {l.neighborhood}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Bottom CTA */}
           <div className="mt-12 rounded-3xl bg-blue-section p-8 text-center text-white">
