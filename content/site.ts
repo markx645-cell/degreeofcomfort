@@ -113,7 +113,15 @@ export const nav: NavItem[] = [
       { label: 'AC Repair', href: '/services/ac-repair' },
       { label: 'AC Installation & Replacement', href: '/services/ac-installation-replacement' },
       { label: 'AC Maintenance', href: '/services/ac-maintenance' },
-      { label: 'Mini-Splits', href: '/services/mini-splits' },
+      {
+        label: 'Mini-Splits',
+        href: '/services/mini-splits',
+        arrow: true,
+        children: [
+          { label: 'Mini-Split Installation', href: '/services/mini-split-installation' },
+          { label: 'Mini-Split Repair', href: '/services/mini-split-repair' },
+        ],
+      },
       { label: 'Indoor Air Quality', href: '/services/indoor-air-quality' },
       { label: 'Shop Air Filters', href: '/services/air-filters' },
     ],
