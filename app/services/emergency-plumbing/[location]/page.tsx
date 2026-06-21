@@ -19,7 +19,9 @@ export async function generateMetadata({
   const { location } = await params;
   const loc = getLocation(location);
   if (!loc) return {};
-  const place = `${loc.neighborhood}, ${loc.city}, ${loc.state}`;
+  const place = loc.city
+    ? `${loc.neighborhood}, ${loc.city}, ${loc.state}`
+    : `${loc.neighborhood}, ${loc.state}`;
   return {
     title: `Emergency Plumber in ${loc.neighborhood}, ${loc.state} | ${site.name}`,
     description: `24/7 emergency plumber in ${place}. Burst pipes, sewer backups, and water heater failures — same-day service. Call ${site.primaryPhone.number}.`,
@@ -76,7 +78,9 @@ export default async function LocationEmergencyPlumbingPage({
   const loc = getLocation(location);
   if (!loc) notFound();
 
-  const place = `${loc.neighborhood}, ${loc.city}, ${loc.state}`;
+  const place = loc.city
+    ? `${loc.neighborhood}, ${loc.city}, ${loc.state}`
+    : `${loc.neighborhood}, ${loc.state}`;
 
   // Section 10 — localized FAQ first, then shared
   const faqs = [
@@ -97,7 +101,7 @@ export default async function LocationEmergencyPlumbingPage({
     areaServed: { '@type': 'Place', name: place },
     address: {
       '@type': 'PostalAddress',
-      addressLocality: loc.city,
+      addressLocality: loc.city ?? loc.neighborhood,
       addressRegion: loc.state,
       postalCode: loc.zip,
       addressCountry: 'US',
