@@ -5,7 +5,7 @@ import Icon from '@/components/Icon';
 import PageHero from '@/components/PageHero';
 import Accordion from '@/components/Accordion';
 import { site } from '@/content/site';
-import { locations, getLocation } from '@/content/locations';
+import { locations, getLocation, getNearby } from '@/content/locations';
 
 export function generateStaticParams() {
   return locations.map((l) => ({ location: l.slug }));
@@ -81,6 +81,7 @@ export default async function LocationEmergencyPlumbingPage({
   const place = loc.city
     ? `${loc.neighborhood}, ${loc.city}, ${loc.state}`
     : `${loc.neighborhood}, ${loc.state}`;
+  const nearby = getNearby(loc);
 
   // Section 10 — localized FAQ first, then shared
   const faqs = [
@@ -266,12 +267,12 @@ export default async function LocationEmergencyPlumbingPage({
           </figure>
           <p className="mt-5 text-sm text-ink/70">
             Also serving nearby:{' '}
-            {loc.adjacent.map((a, i) => (
+            {nearby.map((a, i) => (
               <span key={a.slug}>
                 <Link href={`/services/emergency-plumbing/${a.slug}`} className="font-semibold text-brand-700 underline hover:text-pink-600">
                   {a.name}
                 </Link>
-                {i < loc.adjacent.length - 1 ? ', ' : ''}
+                {i < nearby.length - 1 ? ', ' : ''}
               </span>
             ))}
             .
@@ -316,7 +317,7 @@ export default async function LocationEmergencyPlumbingPage({
               Emergency plumbers in nearby neighborhoods
             </h2>
             <ul className="mt-3 space-y-1.5">
-              {loc.adjacent.map((a) => (
+              {nearby.map((a) => (
                 <li key={a.slug}>
                   <Link href={`/services/emergency-plumbing/${a.slug}`} className="text-sm font-semibold text-brand-800 hover:text-pink-600">
                     Emergency plumber in {a.name} &rarr;
