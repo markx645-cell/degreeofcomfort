@@ -13,6 +13,7 @@ export type ServicePage = {
 
 export const servicePages: ServicePage[] = [
   // ── Plumbing ──
+  { slug: 'drains', title: 'Drain Services', category: 'Plumbing', parentSlug: 'plumbing', blurb: 'Drain services for every part of your home — clearing slow and clogged drains, camera inspection, and lasting repairs.' },
   { slug: 'drain-cleaning', title: 'Drain Cleaning', category: 'Plumbing', parentSlug: 'plumbing', blurb: 'Fast, thorough drain cleaning with camera inspection to find the real cause.' },
   { slug: 'emergency-plumbing', title: 'Emergency Plumbing', category: 'Plumbing', parentSlug: 'plumbing', blurb: 'Burst pipes and major leaks handled fast, before water damage spreads.' },
   { slug: 'faucet-repair-replacement', title: 'Faucet Repair & Replacement', category: 'Plumbing', parentSlug: 'plumbing', blurb: 'Stop the drip and upgrade tired fixtures with a clean, lasting install.' },
@@ -94,7 +95,7 @@ export const serviceMenu: { category: string; href: string; items: { label: stri
       { label: 'Leak Detection', href: '/services/leak-detection' },
       { label: 'Leak Repair', href: '/services/leak-repair' },
       { label: 'Plumbing Repair', href: '/services/plumbing-repair' },
-      { label: 'Drains', href: '/services/drain-cleaning' },
+      { label: 'Drains', href: '/services/drains' },
       { label: 'Sump Pumps', href: '/services/sump-pumps' },
       { label: 'Drain Cleaning', href: '/services/drain-cleaning' },
       { label: 'Emergency Plumbing', href: '/services/emergency-plumbing' },

@@ -48,6 +48,13 @@ const faqs = [
   { q: 'Do you charge extra for nights or weekends?', a: 'No. Our flat-rate pricing is the same any day or hour, with no overtime surcharges.' },
 ];
 
+const relatedCards = [
+  { slug: 'leak-repair', title: 'Leak Repair' },
+  { slug: 'sewer-repair-replacement', title: 'Sewer Repair & Replacement' },
+  { slug: 'water-heater-repair', title: 'Water Heater Repair' },
+  { slug: 'drain-cleaning', title: 'Drain Cleaning' },
+];
+
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -92,29 +99,39 @@ export default function EmergencyPlumbingPage() {
       />
 
       {/* Immediate-call banner (full width) */}
-      <section className="bg-blue-section">
+      <section className="bg-hero-pink">
         <div className="container-page flex flex-col items-center gap-4 py-8 text-center text-white sm:flex-row sm:justify-between sm:text-left">
           <h2 className="font-display text-xl font-extrabold uppercase sm:text-2xl">
             Have a Plumbing Emergency? Call for Immediate Service
           </h2>
-          <a href={site.primaryPhone.href} className="btn-pink flex-shrink-0 text-base">
+          <a
+            href={site.primaryPhone.href}
+            className="flex flex-shrink-0 items-center gap-2 rounded-full bg-lime-500 px-6 py-3 text-sm font-extrabold uppercase tracking-wide text-white shadow-pill transition hover:bg-lime-600"
+          >
             <Icon name="phone" className="h-5 w-5" />
-            Call {site.primaryPhone.number}
+            Call Now
           </a>
         </div>
       </section>
 
+      {/* Intro + sidebar */}
       <section className="py-16">
         <MainWithSidebar>
-          {/* Can fix fast */}
+          <div
+            className="mb-7 aspect-[16/9] w-full rounded-2xl bg-brand-200 bg-cover bg-center"
+            style={{ backgroundImage: 'url(/services/emergency-hero.jpg)' }}
+            role="img"
+            aria-label="Licensed plumber responding to a plumbing emergency"
+          />
           <h2 className="font-display text-3xl font-black uppercase leading-tight text-brand-600 sm:text-4xl">
             Plumbing Emergencies We Can Fix Fast
           </h2>
           <p className="mt-4 text-[17px] leading-relaxed text-ink/75">
-            Plumbing problems rarely happen on a convenient schedule. That is why {site.name} offers
-            24/7 service for every plumbing emergency. From a minor leak to a major water line
-            failure, our licensed plumbers handle each situation with speed and precision. Common
-            emergencies we fix include:
+            When a plumbing emergency strikes, every minute counts — and problems rarely happen on a
+            convenient schedule. That is why {site.name} offers 24/7 service for every emergency
+            across {site.serviceArea}. From a minor leak to a major water line failure, our licensed
+            plumbers handle each situation with speed and precision. Common emergencies we fix
+            include:
           </p>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
             {fixFast.map((f) => (
@@ -126,66 +143,68 @@ export default function EmergencyPlumbingPage() {
           </ul>
           <p className="mt-4 text-[17px] leading-relaxed text-ink/75">
             A burst pipe or sewer backup can cause thousands of dollars in damage in just a few
-            hours, so getting help quickly is key to minimizing loss. When you face a plumbing
-            emergency, our team arrives quickly, assesses the problem, and completes the repair
-            efficiently — protecting your home from further damage while delivering long-lasting
+            hours, so getting help quickly is key to minimizing loss. Even small delays can lead to
+            mounting water damage and mold — our team arrives quickly, assesses the problem, and
+            completes the repair efficiently, protecting your home and delivering long-lasting
             results.
           </p>
 
-          {/* Receptionist intro */}
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:items-center">
-            <div
-              className="aspect-[4/3] rounded-2xl bg-brand-200 bg-cover bg-center"
-              style={{ backgroundImage: 'url(/emergency-call.jpg)' }}
-              role="img"
-              aria-label="Our team answering an emergency call"
-            />
-            <div className="space-y-3 text-sm leading-relaxed text-ink/75">
-              <p>
-                When a plumbing emergency strikes, every minute counts. We provide fast, reliable,
-                professional emergency plumbing for homeowners across {site.serviceArea}.
-              </p>
-              <p>
-                Whether it is a burst pipe, an overflowing water heater, or a sudden sewer backup,
-                our licensed plumbers are ready to respond immediately — keeping your home protected
-                and your plumbing restored quickly. Even small delays can lead to mounting water
-                damage and mold, which is why we treat every emergency with urgency and care.
-              </p>
-            </div>
-          </div>
+          {/* Related services — image cards */}
+          <h2 className="mt-10 section-title text-brand-700">Related Plumbing Services</h2>
+          <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {relatedCards.map((s) => (
+              <li key={s.slug}>
+                <Link href={`/services/${s.slug}`} className="group relative block aspect-[4/3] overflow-hidden rounded-xl">
+                  <span
+                    className="absolute inset-0 bg-brand-200 bg-cover bg-center transition duration-300 group-hover:scale-105"
+                    style={{ backgroundImage: `url(/services/${s.slug}.jpg)` }}
+                  />
+                  <span className="absolute inset-0 bg-gradient-to-t from-pink-600/90 via-pink-500/45 to-transparent transition group-hover:from-pink-600" />
+                  <span className="absolute inset-0 grid place-items-center p-3 text-center">
+                    <span className="font-display text-[13px] font-extrabold uppercase leading-tight tracking-wide text-white [text-shadow:0_2px_6px_rgba(0,0,0,0.85)] sm:text-sm">
+                      {s.title}
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </MainWithSidebar>
+      </section>
 
-          {/* Most common situations — pink band */}
-          <div className="mt-12 overflow-hidden rounded-3xl bg-hero-pink p-7 text-white sm:p-9">
-            <div className="grid gap-7 lg:grid-cols-2 lg:items-center">
-              <div
-                className="aspect-[4/3] rounded-2xl bg-white/20 bg-cover bg-center"
-                style={{ backgroundImage: 'url(/emergency-situations.jpg)' }}
-                role="img"
-                aria-label="Service van"
-              />
-              <div>
-                <h2 className="font-display text-2xl font-black uppercase leading-tight sm:text-3xl">
-                  Most Common Emergency Plumbing Situations
-                </h2>
-                <p className="mt-3 text-sm text-white/90">
-                  Plumbing emergencies can happen without warning and often require immediate
-                  attention to prevent water damage or costly repairs. Some of the most common
-                  situations include:
-                </p>
-                <ul className="mt-4 space-y-1.5">
-                  {commonSituations.map((c) => (
-                    <li key={c} className="flex gap-2 text-sm font-medium">
-                      <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white" />
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+      {/* Band: Most Common Situations (photo left) */}
+      <section className="bg-hero-pink text-white">
+        <div className="container-page grid items-center gap-8 py-14 lg:grid-cols-2 lg:py-16">
+          <div
+            className="aspect-[4/3] rounded-2xl bg-white/15 bg-cover bg-center"
+            style={{ backgroundImage: 'url(/services/emergency-situations.jpg)' }}
+            role="img"
+            aria-label="Burst pipe and water damage"
+          />
+          <div>
+            <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-4xl">
+              Most Common Emergency Plumbing Situations
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-white/90">
+              Plumbing emergencies can happen without warning and often need immediate attention to
+              prevent water damage or costly repairs. Some of the most common situations include:
+            </p>
+            <ul className="mt-4 grid gap-1.5 sm:grid-cols-2">
+              {commonSituations.map((c) => (
+                <li key={c} className="flex gap-2 text-sm font-medium">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white" />
+                  {c}
+                </li>
+              ))}
+            </ul>
           </div>
+        </div>
+      </section>
 
-          {/* Local & trusted banner */}
-          <div className="mt-8 flex flex-col items-center gap-4 rounded-2xl bg-blue-section p-6 text-center sm:flex-row sm:justify-between sm:text-left">
+      {/* Local & trusted banner */}
+      <section className="py-12">
+        <div className="container-page">
+          <div className="flex flex-col items-center gap-4 rounded-2xl bg-blue-section p-6 text-center sm:flex-row sm:justify-between sm:text-left">
             <h2 className="font-display text-xl font-extrabold uppercase text-white sm:text-2xl">
               Your Local &amp; Trusted Emergency Plumbing Service Pros
             </h2>
@@ -193,37 +212,41 @@ export default function EmergencyPlumbingPage() {
               Get Peace of Mind Today!
             </a>
           </div>
+        </div>
+      </section>
 
-          {/* What to expect — pink band */}
-          <div className="mt-8 overflow-hidden rounded-3xl bg-hero-pink p-7 text-white sm:p-9">
-            <div className="grid gap-7 lg:grid-cols-2 lg:items-center">
-              <div>
-                <h2 className="font-display text-2xl font-black uppercase leading-tight sm:text-3xl">
-                  What to Expect From Your Emergency Plumbing Service
-                </h2>
-                <p className="mt-3 text-sm text-white/90">
-                  When you schedule emergency plumbing service, the priority is to respond quickly
-                  and limit damage to your home. A licensed plumber arrives promptly, assesses the
-                  situation, and takes immediate steps to stop active leaks, backups, or flooding.
-                </p>
-                <p className="mt-3 text-sm text-white/90">
-                  After identifying the cause, the plumber explains the recommended repair and gives
-                  you clear next steps before any work begins. We focus on restoring safety and basic
-                  function first, with permanent repairs completed as efficiently as possible to get
-                  your plumbing back to normal.
-                </p>
-              </div>
-              <div
-                className="aspect-[4/3] rounded-2xl bg-white/20 bg-cover bg-center lg:order-last"
-                style={{ backgroundImage: 'url(/emergency-expect.jpg)' }}
-                role="img"
-                aria-label="Technician reviewing the repair with a homeowner"
-              />
-            </div>
+      {/* Band: What to Expect (photo right) */}
+      <section className="bg-hero-pink text-white">
+        <div className="container-page grid items-center gap-8 py-14 lg:grid-cols-2 lg:py-16">
+          <div className="lg:order-1">
+            <h2 className="font-display text-3xl font-black uppercase leading-tight sm:text-4xl">
+              What to Expect From Your Emergency Plumbing Service
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-white/90">
+              When you call for emergency plumbing service, the priority is to respond quickly and
+              limit damage to your home. A licensed plumber arrives promptly, assesses the situation,
+              and takes immediate steps to stop active leaks, backups, or flooding.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-white/90">
+              After identifying the cause, the plumber explains the recommended repair and gives you
+              clear next steps before any work begins. We restore safety and basic function first,
+              then complete the permanent repair as efficiently as possible to get your plumbing back
+              to normal.
+            </p>
           </div>
+          <div
+            className="aspect-[4/3] rounded-2xl bg-white/15 bg-cover bg-center lg:order-2"
+            style={{ backgroundImage: 'url(/services/emergency-expect.jpg)' }}
+            role="img"
+            aria-label="Plumber reviewing the repair with a homeowner"
+          />
+        </div>
+      </section>
 
-          {/* Prose sections */}
-          <div className="mt-12 space-y-8">
+      {/* Prose + why us + FAQ + neighborhoods + CTA */}
+      <section className="py-14">
+        <div className="container-page max-w-4xl">
+          <div className="space-y-8">
             <div>
               <h2 className="section-title text-brand-700">
                 Emergency Plumbing Services in {site.serviceArea} &amp; Beyond
@@ -273,32 +296,24 @@ export default function EmergencyPlumbingPage() {
                 after the emergency is over.
               </p>
             </div>
+          </div>
 
-            <div>
-              <h2 className="section-title text-brand-700">
-                Why Choose {site.name} for Your Plumbing Emergencies
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-ink/75">
-                Plumbing emergencies require fast action and experienced professionals who know how
-                to handle urgent situations. With licensed technicians, clear communication, and
-                upfront scheduling, we make it easier to get the help you need when it matters most —
-                restoring safety, protecting your plumbing system, and delivering reliable repairs you
-                can trust.
-              </p>
-              <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                {whyUs.map((w) => (
-                  <div key={w.title} className="card flex gap-3.5">
-                    <span className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl bg-pink-500 text-white">
-                      <Icon name={w.icon} className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <h3 className="font-display text-base font-extrabold text-brand-700">{w.title}</h3>
-                      <p className="text-sm text-ink/70">{w.text}</p>
-                    </div>
-                  </div>
-                ))}
+          {/* Why us */}
+          <h2 className="mt-12 section-title text-brand-700">
+            Why Choose {site.name} for Your Plumbing Emergencies
+          </h2>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            {whyUs.map((w) => (
+              <div key={w.title} className="card flex gap-3.5">
+                <span className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl bg-pink-500 text-white">
+                  <Icon name={w.icon} className="h-5 w-5" />
+                </span>
+                <div>
+                  <h3 className="font-display text-base font-extrabold text-brand-700">{w.title}</h3>
+                  <p className="text-sm text-ink/70">{w.text}</p>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
 
           {/* FAQ */}
@@ -361,7 +376,7 @@ export default function EmergencyPlumbingPage() {
               Call {site.primaryPhone.number}
             </a>
           </div>
-        </MainWithSidebar>
+        </div>
       </section>
 
       <PageSections />

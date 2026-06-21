@@ -12,7 +12,7 @@ import { site } from '@/content/site';
 
 // Slugs that have their own dedicated, fully built master page (so the generic
 // template route should NOT also generate them).
-const MASTER_SLUGS = new Set(['emergency-plumbing']);
+const MASTER_SLUGS = new Set(['emergency-plumbing', 'plumbing', 'drains', 'drain-cleaning', 'faucet-repair-replacement', 'leak-detection', 'leak-repair', 'plumbing-installation', 'plumbing-repair', 'sewer-repair-replacement', 'sump-pumps', 'tankless-water-heater', 'water-heater-installation', 'water-heater-maintenance', 'water-heater-repair', 'water-quality']);
 
 export function generateStaticParams() {
   return [...services.map((s) => s.slug), ...servicePages.map((s) => s.slug)]

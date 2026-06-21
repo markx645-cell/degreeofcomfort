@@ -69,7 +69,12 @@ export const nav: NavItem[] = [
     href: '/services/plumbing',
     caret: true,
     children: [
-      { label: 'Drains', href: '/services/drain-cleaning', arrow: true },
+      {
+        label: 'Drains',
+        href: '/services/drains',
+        arrow: true,
+        children: [{ label: 'Drain Cleaning', href: '/services/drain-cleaning' }],
+      },
       { label: 'Emergency Plumbing', href: '/services/emergency-plumbing' },
       { label: 'Faucet Repair & Replacement', href: '/services/faucet-repair-replacement' },
       { label: 'Leak Detection', href: '/services/leak-detection' },
