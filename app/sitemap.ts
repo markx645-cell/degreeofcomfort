@@ -3,7 +3,7 @@ import { site } from '@/content/site';
 import { services } from '@/content/services';
 import { servicePages } from '@/content/servicePages';
 import { companyPages } from '@/content/companyPages';
-import { locations } from '@/content/locations';
+import { locations, DEPLOYED_LOCATION_SLUGS } from '@/content/locations';
 import { acRepairCopy } from '@/content/location-copy/ac-repair';
 import { furnaceRepairCopy } from '@/content/location-copy/furnace-repair';
 import { waterHeaterRepairCopy } from '@/content/location-copy/water-heater-repair';
@@ -42,11 +42,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  const locationRoutes = locations.map((l) => ({
-    url: `${base}/services/emergency-plumbing/${l.slug}/`,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
+  const locationRoutes = locations
+    .filter((l) => DEPLOYED_LOCATION_SLUGS.includes(l.slug))
+    .map((l) => ({
+      url: `${base}/services/emergency-plumbing/${l.slug}/`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }));
 
   const acRepairLocationRoutes = locations
     .filter((l) => acRepairCopy[l.slug])

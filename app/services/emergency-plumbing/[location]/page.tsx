@@ -7,10 +7,12 @@ import PageSections from '@/components/PageSections';
 import MainWithSidebar from '@/components/Sidebar';
 import Accordion from '@/components/Accordion';
 import { site } from '@/content/site';
-import { locations, getLocation, getNearby } from '@/content/locations';
+import { locations, getLocation, getNearby, DEPLOYED_LOCATION_SLUGS } from '@/content/locations';
 
 export function generateStaticParams() {
-  return locations.map((l) => ({ location: l.slug }));
+  return locations
+    .filter((l) => DEPLOYED_LOCATION_SLUGS.includes(l.slug))
+    .map((l) => ({ location: l.slug }));
 }
 
 export async function generateMetadata({

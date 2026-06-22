@@ -6,7 +6,7 @@ import MainWithSidebar from '@/components/Sidebar';
 import Link from 'next/link';
 import Accordion from '@/components/Accordion';
 import { site } from '@/content/site';
-import { locations, locationsByGroup } from '@/content/locations';
+import { locations, locationsByGroup, DEPLOYED_LOCATION_SLUGS } from '@/content/locations';
 
 export const metadata: Metadata = {
   title: 'Emergency Plumbing',
@@ -333,31 +333,35 @@ export default function EmergencyPlumbingPage() {
             <div className="mt-12">
               <h2 className="section-title text-brand-700">Emergency plumbing by neighborhood</h2>
               <p className="mt-3 text-sm leading-relaxed text-ink/75">
-                We respond across {site.serviceArea} — {locations.length} neighborhoods and counting.
-                For local detail on response times and the plumbing issues common to older homes in
-                your area, find yours below.
+                We respond across {site.serviceArea} — {DEPLOYED_LOCATION_SLUGS.length} neighborhoods and
+                counting. For local detail on response times and the plumbing issues common to older homes
+                in your area, find yours below.
               </p>
               <div className="mt-6 space-y-7">
-                {locationsByGroup().map(({ group, items }) => (
-                  <div key={group}>
-                    <h3 className="flex items-center gap-2 font-display text-base font-extrabold text-brand-700">
-                      <Icon name="pin" className="h-4 w-4 text-pink-500" />
-                      {group}
-                    </h3>
-                    <ul className="mt-2 columns-1 gap-x-6 sm:columns-2">
-                      {items.map((l) => (
-                        <li key={l.slug} className="mb-1.5 break-inside-avoid">
-                          <Link
-                            href={`/services/emergency-plumbing/${l.slug}`}
-                            className="text-sm font-medium text-brand-800 hover:text-pink-600"
-                          >
-                            Emergency plumber in {l.neighborhood}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+                {locationsByGroup().map(({ group, items }) => {
+                  const local = items.filter((l) => DEPLOYED_LOCATION_SLUGS.includes(l.slug));
+                  if (!local.length) return null;
+                  return (
+                    <div key={group}>
+                      <h3 className="flex items-center gap-2 font-display text-base font-extrabold text-brand-700">
+                        <Icon name="pin" className="h-4 w-4 text-pink-500" />
+                        {group}
+                      </h3>
+                      <ul className="mt-2 columns-1 gap-x-6 sm:columns-2">
+                        {local.map((l) => (
+                          <li key={l.slug} className="mb-1.5 break-inside-avoid">
+                            <Link
+                              href={`/services/emergency-plumbing/${l.slug}`}
+                              className="text-sm font-medium text-brand-800 hover:text-pink-600"
+                            >
+                              Emergency plumber in {l.neighborhood}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

@@ -34,6 +34,13 @@ export type Location = {
   adjacent?: Adjacent[];
 };
 
+// Interim deploy cohort — the 10 neighborhoods we ship per service for a fast
+// build. To deploy all 170, export the full map in each per-service barrel.
+export const DEPLOYED_LOCATION_SLUGS = [
+  'sedamsville', 'sayler-park', 'riverside', 'east-price-hill', 'west-price-hill',
+  'lower-price-hill', 'over-the-rhine', 'downtown', 'west-end', 'mount-adams',
+];
+
 export const locations: Location[] = [
   {
     slug: 'sedamsville',

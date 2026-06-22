@@ -1,4 +1,5 @@
 import type { LocationServiceCopy } from '@/components/LocationServicePage';
+import { DEPLOYED_LOCATION_SLUGS } from '@/content/locations';
 import { part1 } from './water-heater-repair-parts/part1';
 import { part2 } from './water-heater-repair-parts/part2';
 import { part3 } from './water-heater-repair-parts/part3';
@@ -8,7 +9,7 @@ import { part6 } from './water-heater-repair-parts/part6';
 
 // Per-neighborhood, water-heater-repair-specific copy, drafted from each
 // neighborhood's real local facts in content/locations.ts.
-export const waterHeaterRepairCopy: Record<string, LocationServiceCopy> = {
+const all: Record<string, LocationServiceCopy> = {
   ...part1,
   ...part2,
   ...part3,
@@ -16,3 +17,8 @@ export const waterHeaterRepairCopy: Record<string, LocationServiceCopy> = {
   ...part5,
   ...part6,
 };
+
+// Interim deploy: ship only the DEPLOYED_LOCATION_SLUGS cohort. Export 'all' for all 170.
+export const waterHeaterRepairCopy: Record<string, LocationServiceCopy> = Object.fromEntries(
+  DEPLOYED_LOCATION_SLUGS.filter((s) => all[s]).map((s) => [s, all[s]]),
+);
