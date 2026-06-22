@@ -6,6 +6,8 @@ import PageSections from '@/components/PageSections';
 import MainWithSidebar from '@/components/Sidebar';
 import Accordion from '@/components/Accordion';
 import { site } from '@/content/site';
+import { locations, locationsByGroup } from '@/content/locations';
+import { leakRepairCopy } from '@/content/location-copy/leak-repair';
 
 export const metadata: Metadata = {
   title: 'Leak Repair',
@@ -302,6 +304,44 @@ export default function LeakRepairPage() {
                 Free Estimate
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leak repair by neighborhood — links DOWN to location pages */}
+      <section className="pb-16">
+        <div className="container-page max-w-4xl">
+          <h2 className="section-title text-brand-700">Leak repair by neighborhood</h2>
+          <p className="mt-3 text-sm leading-relaxed text-ink/75">
+            We find and fix leaks across {site.serviceArea} —{' '}
+            {locations.filter((l) => leakRepairCopy[l.slug]).length} neighborhoods and counting. For local
+            detail on the leaks common to homes in your area, find yours below.
+          </p>
+          <div className="mt-6 space-y-7">
+            {locationsByGroup().map(({ group, items }) => {
+              const local = items.filter((l) => leakRepairCopy[l.slug]);
+              if (!local.length) return null;
+              return (
+                <div key={group}>
+                  <h3 className="flex items-center gap-2 font-display text-base font-extrabold text-brand-700">
+                    <Icon name="pin" className="h-4 w-4 text-pink-500" />
+                    {group}
+                  </h3>
+                  <ul className="mt-2 columns-1 gap-x-6 sm:columns-2">
+                    {local.map((l) => (
+                      <li key={l.slug} className="mb-1.5 break-inside-avoid">
+                        <Link
+                          href={`/services/leak-repair/${l.slug}`}
+                          className="text-sm font-medium text-brand-800 hover:text-pink-600"
+                        >
+                          Leak repair in {l.neighborhood}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

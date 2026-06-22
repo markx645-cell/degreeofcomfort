@@ -99,8 +99,8 @@ export default function Header() {
                                         {sub.label}
                                         <Icon name="chevron" className="h-3.5 w-3.5" />
                                       </Link>
-                                      <div className="invisible absolute left-full top-0 z-50 w-72 opacity-0 transition-all duration-150 group-hover/sub2:visible group-hover/sub2:opacity-100">
-                                        <div className="ml-px rounded-r-lg border border-brand-100 bg-white shadow-card">
+                                      <div className="invisible absolute right-full top-0 z-50 w-72 opacity-0 transition-all duration-150 group-hover/sub2:visible group-hover/sub2:opacity-100">
+                                        <div className="mr-px rounded-l-lg border border-brand-100 bg-white shadow-card">
                                           {sub.children.map((leaf) => (
                                             <Link
                                               key={leaf.label}
